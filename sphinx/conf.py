@@ -24,9 +24,9 @@ copyright = '2019, Ledgerium Pty Ltd.'
 author = 'Ledgerium Pty Ltd.'
 
 # The short X.Y version
-version = ''
+version = '0.1'
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.1.0alpha'
 
 
 # -- General configuration ---------------------------------------------------
