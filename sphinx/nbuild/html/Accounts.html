@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Accounts &mdash; Ledgerium Docs 0.1.0alpha documentation</title>
+  <title>Accounts &mdash; Ledgerium Docs 1.1.0alpha documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1
+                1.1
               </div>
             
           
@@ -103,6 +103,12 @@
 <li class="toctree-l2"><a class="reference internal" href="Account_Management.html#id1">Account Management</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#accounts">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#keyfiles">Keyfiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#creating-an-account">Creating an account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#importing-your-presale-wallet">Importing your presale wallet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#updating-an-account">Updating an account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#backup-and-restore-accounts">Backup and restore accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a></li>
 <li class="toctree-l1"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
@@ -219,7 +225,7 @@
 Accounts are essential for users to interact with the Ethereum blockchain via transactions.</p>
 <p>If we restrict Ethereum to only externally owned accounts and allow only transactions between them, we arrive at an “altcoin” system that is less powerful than bitcoin itself and can only be used to transfer ether.</p>
 <p>Accounts represent identities of external agents (e.g., human personas, mining nodes or automated agents). Accounts use public key cryptography to sign transactions so that the EVM can securely validate the identity of a transaction sender.</p>
-<p>Every account is defined by a pair of keys, a private key and public key. Accounts are indexed by their <em>address</em> which is derived from the public key by taking the last 20 bytes. Every private key/address pair is encoded in a <em>keyfile</em>. Keyfiles are JSON text files which you can open and view in any text editor. The critical component of the keyfile, your account’s private key, is always encrypted, and it is encrypted with the password you enter when you create the account. Keyfiles are found in the <code class="docutils literal notranslate"><span class="pre">keystore</span></code> subdirectory of your Ethereum node’s data directory. Make sure you backup your keyfiles regularly! See the section <span class="xref std std-ref">backup-and-restore-accounts</span> for more information.</p>
+<p>Every account is defined by a pair of keys, a private key and public key. Accounts are indexed by their <em>address</em> which is derived from the public key by taking the last 20 bytes. Every private key/address pair is encoded in a <em>keyfile</em>. Keyfiles are JSON text files which you can open and view in any text editor. The critical component of the keyfile, your account’s private key, is always encrypted, and it is encrypted with the password you enter when you create the account. Keyfiles are found in the <code class="docutils literal notranslate"><span class="pre">keystore</span></code> subdirectory of your Ethereum node’s data directory. Make sure you backup your keyfiles regularly! See the section <a class="reference internal" href="Account_Management.html#backup-and-restore-accounts"><span class="std std-ref">Backup and restore accounts</span></a> for more information.</p>
 <p>Creating a key is tantamount to creating an account.</p>
 <ul class="simple">
 <li>You don’t need to tell anybody else you’re doing it</li>
