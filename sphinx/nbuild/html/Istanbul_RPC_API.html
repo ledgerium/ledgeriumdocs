@@ -91,20 +91,34 @@
 <p class="caption"><span class="caption-text">LEDGERIUM OVERVIEW</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="Ledgerium_Core.html">Ledgerium Core</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="EVM.html">EVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EVM.html">EVM (Ethereum Virtual Machine)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Smart_Contracts.html">Smart Contracts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DAO.html">DAO</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="Quorum.html">Quorum</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="Introduction_Background.html">Introduction/Background</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Design.html">Design</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Consensus_Mecahnism_(IBFT).html">Consensus Mecahnism (IBFT)</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Istanbul RPC API</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Istanbul RPC API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#istanbul-consensus">Istanbul Consensus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#istanbul-getsnapshot">istanbul.getSnapshot()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#istanbul-propose">istanbul.propose()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#istanbul-getsnapshotathash">istanbul.getSnapshotAtHash()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#istanbul-getcandidates-callback">istanbul.getCandidates(callback)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#istanbul-getvalidators">istanbul.getValidators()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#istanbul-working">Istanbul Working</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="Peer_Permissioning_Governance.html">Peer Permissioning/Governance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Higher_performance.html">Higher performance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Privacy_&amp;_Transparency.html">Privacy &amp; Transparency</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Using_Ledgerium.html">Using Ledgerium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Core.html#quorum-private-public-hybrid-blockchain">Quorum - private/public hybrid blockchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Core.html#why-quorum">Why Quorum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Core.html#zkp">ZKP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Core.html#ibft">IBFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Core.html#why-ibft">Why IBFT</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Connecting_to_Ledgerium_Core.html">Connecting to Ledgerium Core</a></li>
@@ -112,7 +126,7 @@
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a></li>
 <li class="toctree-l1"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private testnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private TestNet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG_Reward.html">XLG Reward</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Application.html">Ledgerium Application</a></li>
 </ul>
@@ -203,6 +217,123 @@
             
   <div class="section" id="istanbul-rpc-api">
 <h1>Istanbul RPC API<a class="headerlink" href="#istanbul-rpc-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="istanbul-consensus">
+<h2>Istanbul Consensus<a class="headerlink" href="#istanbul-consensus" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Istanbul package provides ways of interacting with the consensus mechanism, it allows new validators to be added and existing validators to be removed</li>
+<li>It allows managing the number of validators by a voting mechanism which involves at least 2F+1 nodes</li>
+<li>The details of active nodes can be found in the extra data of each block that has been committed using the istanbul-tools. One can decode the data in the following way</li>
+</ol>
+<blockquote>
+<div><dl class="docutils">
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a></dt>
+<dd>istanbul extra decode –extradata “&lt;extradata&gt;
+<a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></dd>
+</dl>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>This extra data contains one seal and 2F+1 committed seals, these committed seals are omitted when the block hash is calculated</li>
+<li>The committed seals maybe different in different blocks, but as this is not included in the blockhash, the hash can be used to verify across other nodes</li>
+</ol>
+</div>
+<div class="section" id="istanbul-getsnapshot">
+<h2>istanbul.getSnapshot()<a class="headerlink" href="#istanbul-getsnapshot" title="Permalink to this headline">¶</a></h2>
+<p>This call shows the current state of the blockchain and gives the below structure as output
+<a href="#id9"><span class="problematic" id="id10">``</span></a>`
+{</p>
+<blockquote>
+<div><p>epoch: &lt;num&gt;,
+hash: “”,
+number: ,
+policy: 0,
+tally: {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;addr&gt;: {</dt>
+<dd>authorize: bool,
+votes: num</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>},
+validators: [addr1,addr2..],
+votes: [{</p>
+<blockquote>
+<div>address: addr,
+authorize: bool,
+block: num,
+validator: addr</div></blockquote>
+<p>}]</p>
+</div></blockquote>
+<div class="section" id="id11">
+<h3>}<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>epoch : Indicates the number of blocks after which the proposal which hasn’t been resolved is cleared</li>
+<li>hash  : The current block hash at the given block number</li>
+<li>tally : The object maintaining the current state of votes of all the validators</li>
+<li>validators : The list of all the addresses which can act as validators</li>
+<li>votes : The individual votes casted by validators as an array</li>
+<li>authorize : true - proposal to add as a validator, false - proposal to remove as a validator</li>
+</ul>
+</div>
+</div>
+<div class="section" id="istanbul-propose">
+<h2>istanbul.propose()<a class="headerlink" href="#istanbul-propose" title="Permalink to this headline">¶</a></h2>
+<p>This method is used to start voting/vote for an existing proposal; to add or remove a validator takes as argument the coinbase of the node and a bool value indicating if the validator is to be added or removed.</p>
+</div>
+<div class="section" id="istanbul-getsnapshotathash">
+<h2>istanbul.getSnapshotAtHash()<a class="headerlink" href="#istanbul-getsnapshotathash" title="Permalink to this headline">¶</a></h2>
+<p>Used to get the current state of the voting and active validators as of a particular block hash, takes as argument a block hash</p>
+</div>
+<div class="section" id="istanbul-getcandidates-callback">
+<h2>istanbul.getCandidates(callback)<a class="headerlink" href="#istanbul-getcandidates-callback" title="Permalink to this headline">¶</a></h2>
+<p>Gives all the addresses with the respective votes casted by that particular node as a error first callback</p>
+</div>
+<div class="section" id="istanbul-getvalidators">
+<h2>istanbul.getValidators()<a class="headerlink" href="#istanbul-getvalidators" title="Permalink to this headline">¶</a></h2>
+<p>Returns the list of active validators who can commit a block</p>
+<p>Every block header contains the following fields</p>
+<p><a href="#id12"><span class="problematic" id="id13">``</span></a>`
+block =
+{</p>
+<blockquote>
+<div>difficulty: 1,
+extraData: “”,
+gasLimit: ,
+gasUsed: 0,
+logsBloom: ,
+mixHash: ,
+nonce: “0x0000000000000000”,
+number: 12220,
+parentHash: “”,
+receiptsRoot: “”,
+sha3Uncles: “”,
+stateRoot: “”,
+timestamp: ,
+transactionsRoot: “”</div></blockquote>
+<div class="section" id="id14">
+<h3>}<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>The extra data doesn’t include the committed seals as these can vary from block to block, so the only extra data is the rlpHash of the validators and seal.
+When a block is sealed the block seal is computed as ECDSA(rlpHash(Block_Header), private_key)</p>
+</div>
+</div>
+<div class="section" id="istanbul-working">
+<h2>Istanbul Working<a class="headerlink" href="#istanbul-working" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>For a new block to be committed the validators pick a new node as proposer which will be responsible to create a new block.</li>
+<li>This is broadcasted to all the validators along with the pre-prepare message, making all the node’s change their state to pre-prepared</li>
+<li>These validators now publish a prepare message</li>
+<li>Upon receiving 2F+1 pre-prepare messages from the validators the proposer nodes prepares for the commit of the block</li>
+<li>The new block will comprise of all the transactions submitted to that particular node, from all the transactions the block headers will be calculated</li>
+<li><strong>The RLP hash of all the block header will give the resultant block hash, when published this block hash will be signed using the node’s private key</strong></li>
+<li><strong>This signature signifies the seal of the block, which signifies that the block hash been sealed into the blockchain by a particular proposer.</strong></li>
+<li>And once this block has been pushed a commit message is sent along with the block details</li>
+<li>Each validator along with the proposer waits for 2F+1 commit messages from other blocks</li>
+<li><strong>Each node appends it’s own signature to the extra data of this block, this is the committed seal field in the extra data</strong></li>
+<li>Once each block has 2F+1 committed seals all the validators publish a new-round message</li>
+<li>The same process repeats once a new validator is chosen as a new block proposer</li>
+</ol>
+</div>
 </div>
 
 

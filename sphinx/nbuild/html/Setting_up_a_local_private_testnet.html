@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Setting up a local private testnet &mdash; Ledgerium Docs 0.1.0alpha documentation</title>
+  <title>Setting up a local private TestNet &mdash; Ledgerium Docs 0.1.0alpha documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="XLG Reward" href="XLG_Reward.html" />
-    <link rel="prev" title="Connecting to Ledgerium TestNet" href="Connecting_to_Ledgerium_TestNet.html" /> 
+    <link rel="prev" title="Test Networks" href="Test_Networks.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -98,11 +98,29 @@
 <li class="toctree-l2"><a class="reference internal" href="Connecting_to_the_Network.html">Connecting to the Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Setting up a local private testnet</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Setting up a local private TestNet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ledgeriumtools">LedgeriumTools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#downloading">Downloading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-initialparams-json">Update initialparams.json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-ledgeriumtools-application">Run ledgeriumtools application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start-the-ledgerium-network">Start the Ledgerium Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#confirming-ledgerium-network-is-up-and-running-correctly">Confirming Ledgerium Network is up and running correctly</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up a local private testnet</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up a local private TestNet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ledgeriumtools">LedgeriumTools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#downloading">Downloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-initialparams-json">Update initialparams.json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-ledgeriumtools-application">Run ledgeriumtools application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-the-ledgerium-network">Start the Ledgerium Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confirming-ledgerium-network-is-up-and-running-correctly">Confirming Ledgerium Network is up and running correctly</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="XLG_Reward.html">XLG Reward</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Application.html">Ledgerium Application</a></li>
 </ul>
@@ -170,7 +188,7 @@
         
           <li><a href="The_Ledgerium_network.html">The Ledgerium network</a> &raquo;</li>
         
-      <li>Setting up a local private testnet</li>
+      <li>Setting up a local private TestNet</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,7 +208,83 @@
            <div itemprop="articleBody">
             
   <div class="section" id="setting-up-a-local-private-testnet">
-<h1>Setting up a local private testnet<a class="headerlink" href="#setting-up-a-local-private-testnet" title="Permalink to this headline">¶</a></h1>
+<h1>Setting up a local private TestNet<a class="headerlink" href="#setting-up-a-local-private-testnet" title="Permalink to this headline">¶</a></h1>
+<p>To set-up your local private testnet, please visit the section on <cite>Ledgerium Tools</cite></p>
+<div class="section" id="ledgeriumtools">
+<h2>LedgeriumTools<a class="headerlink" href="#ledgeriumtools" title="Permalink to this headline">¶</a></h2>
+<p>Ledgerium tools generates a docker-compose yaml for deploying N nodes with IBFT consensus</p>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>NodeJS</li>
+<li>NPM</li>
+<li>Docker</li>
+</ul>
+</div>
+<div class="section" id="downloading">
+<h2>Downloading<a class="headerlink" href="#downloading" title="Permalink to this headline">¶</a></h2>
+<p>Start up the terminal and enter the following commands:</p>
+<ul class="simple">
+<li>git clone <a class="reference external" href="https://github.com/ledgerium-io/ledgeriumtools.git">https://github.com/ledgerium-io/ledgeriumtools.git</a></li>
+<li>cd ledgeriumtools</li>
+</ul>
+</div>
+<div class="section" id="update-initialparams-json">
+<h2>Update initialparams.json<a class="headerlink" href="#update-initialparams-json" title="Permalink to this headline">¶</a></h2>
+<p>Edit this file before running the application</p>
+<ol class="arabic">
+<li><p class="first">mode: Change mode type (full/addon)</p>
+<blockquote>
+<div><ul class="simple">
+<li>If mode type is full, this application will create a ledgeriumnetwork folder outside ledgeriumtools which has static-nodes and externalised genesis files.</li>
+<li>If mode type is addon, get latest ledgeriumnetwork files from github and paste those files under ledgeriumtools/output/tmp</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">externalIPAddress : To host a node for a network that can be connected to by anyone outside your LAN</p>
+</li>
+<li><p class="first">nodeName : Hostname of the machine where nodes will be hosted.</p>
+</li>
+<li><p class="first">domainName : Domain name of the external IP Address. domainName is needed for every node to which any client wants to <cite>send transactions</cite> or do <cite>“geth attach”</cite></p>
+</li>
+</ol>
+</div>
+<div class="section" id="run-ledgeriumtools-application">
+<h2>Run ledgeriumtools application<a class="headerlink" href="#run-ledgeriumtools-application" title="Permalink to this headline">¶</a></h2>
+<p>To start the application, run</p>
+<ul class="simple">
+<li>node index.js</li>
+</ul>
+<p>Takes input from the command line interface, prompts to enter number of menmonics</p>
+<ul class="simple">
+<li>Number of Mnemonics : 2</li>
+<li>Enter Mnemonic 0 : <strong>*******************************</strong></li>
+<li>Enter Password 0 : <strong>***********</strong></li>
+<li>Enter Mnemonic 1 : <strong>*************************************</strong></li>
+<li>Enter Password 1 : <strong>***********</strong></li>
+</ul>
+<p>Enter the Mnemonics and password which wilsl generate the nodekeys and password</p>
+<p>The number of nodes brought up is equal to the number of keys/menmonics provided in the file i.e. <cite>n keys</cite> signifies <cite>n nodes</cite> with the respective keys as coinbase/etherbase</p>
+<p>The docker file will be generated in the <cite>output</cite> folder.</p>
+</div>
+<div class="section" id="start-the-ledgerium-network">
+<h2>Start the Ledgerium Network<a class="headerlink" href="#start-the-ledgerium-network" title="Permalink to this headline">¶</a></h2>
+<p>Change directory to output and use</p>
+<ul class="simple">
+<li><cite>docker-compose up -d</cite> to start up the nodes</li>
+<li><cite>docker-compose down</cite> to bring down the nodes</li>
+</ul>
+</div>
+<div class="section" id="confirming-ledgerium-network-is-up-and-running-correctly">
+<h2>Confirming Ledgerium Network is up and running correctly<a class="headerlink" href="#confirming-ledgerium-network-is-up-and-running-correctly" title="Permalink to this headline">¶</a></h2>
+<p>Note :</p>
+<ul class="simple">
+<li>This application is currently using <cite>constellation</cite> as the <cite>private transaction manager</cite>.*</li>
+<li>Don’t use the -v option to bring down the nodes as the current blockchain data will be lost*</li>
+<li>For subsequent runs make sure the tmp dir created in output folder is deleted*</li>
+</ul>
+</div>
 </div>
 
 
@@ -204,7 +298,7 @@
         <a href="XLG_Reward.html" class="btn btn-neutral float-right" title="XLG Reward" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Connecting_to_Ledgerium_TestNet.html" class="btn btn-neutral float-left" title="Connecting to Ledgerium TestNet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Test_Networks.html" class="btn btn-neutral float-left" title="Test Networks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
