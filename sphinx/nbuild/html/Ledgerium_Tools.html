@@ -102,7 +102,11 @@
 <li class="toctree-l3"><a class="reference internal" href="Running_a_validator_Node.html">Running a validator Node</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Installing_LedgeriumCore.html">Installing LedgeriumCore</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Ledgerium Tools</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Ledgerium Tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#update-initialparams-json">Update initialparams.json</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-ledgeriumtools-application">Run ledgeriumtools application</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
@@ -202,6 +206,56 @@
             
   <div class="section" id="ledgerium-tools">
 <h1>Ledgerium Tools<a class="headerlink" href="#ledgerium-tools" title="Permalink to this headline">¶</a></h1>
+<p>A tool for generating a docker-compose yaml for deploying N nodes with IBFT consensus</p>
+<div class="section" id="update-initialparams-json">
+<h2>Update initialparams.json<a class="headerlink" href="#update-initialparams-json" title="Permalink to this headline">¶</a></h2>
+<p>Edit this file before running the application</p>
+<ol class="arabic">
+<li><p class="first">mode: Change mode type (full/addon)</p>
+<blockquote>
+<div><ul class="simple">
+<li>If mode type is full, this application will create a ledgeriumnetwork folder outside ledgeriumtools which has static-nodes and externalised genesis files.</li>
+<li>If mode type is addon, get latest ledgeriumnetwork files from github and paste those files under ledgeriumtools/output/tmp</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">externalIPAddress : To host a node for a network that can be connected to by anyone outside your LAN</p>
+</li>
+<li><p class="first">nodeName : Hostname of the machine where nodes will be hosted.</p>
+</li>
+<li><p class="first">domainName : Domain name of the external IP Address. domainName is needed for every node to which any client wants to <cite>send transactions</cite> or do <cite>“geth attach”</cite></p>
+</li>
+</ol>
+</div>
+<div class="section" id="run-ledgeriumtools-application">
+<h2>Run ledgeriumtools application<a class="headerlink" href="#run-ledgeriumtools-application" title="Permalink to this headline">¶</a></h2>
+<p>To start the application, run</p>
+<ul class="simple">
+<li>node index.js</li>
+</ul>
+<p>Takes input from the command line interface, prompts to enter number of menmonics</p>
+<ul class="simple">
+<li>Number of Mnemonics : 2</li>
+<li>Enter Mnemonic 0 : <strong>***</strong> <strong>*************************</strong></li>
+<li>Enter Password 0 : <strong>***********</strong></li>
+<li>Enter Mnemonic 1 : <strong>*************************************</strong></li>
+<li>Enter Password 1 : <strong>***********</strong></li>
+</ul>
+<p>Enter the Mnemonics and password which will generate the nodekeys and password</p>
+<p>The number of nodes brought up is equal to the number of keys/menmonics provided in the file i.e. <cite>n keys</cite> signifies <cite>n nodes</cite> with the respective keys as coinbase/etherbase</p>
+<p>The docker file will be generated in the <cite>output</cite> folder.</p>
+<p>Change directory to output and use</p>
+<ul class="simple">
+<li><cite>docker-compose up -d</cite> to start up the nodes</li>
+<li><cite>docker-compose down</cite> to bring down the nodes</li>
+</ul>
+<p>Note :</p>
+<ul class="simple">
+<li>This application is currently using <cite>constellation</cite> as the <cite>private transaction manager</cite>.*</li>
+<li>Don’t use the -v option to bring down the nodes as the current blockchain data will be lost*</li>
+<li>For subsequent runs make sure the tmp dir created in output folder is deleted*</li>
+</ul>
+</div>
 </div>
 
 
