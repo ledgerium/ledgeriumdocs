@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Manual backup/restore &mdash; Ledgerium Docs 0.0.1 documentation</title>
+  <title>Manual backup/restore &mdash; Ledgerium Docs 0.1.0alpha documentation</title>
   
 
   
@@ -58,6 +58,10 @@
 
           
             
+            
+              <div class="version">
+                0.1
+              </div>
             
           
 
@@ -199,6 +203,14 @@
             
   <div class="section" id="manual-backup-restore">
 <h1>Manual backup/restore<a class="headerlink" href="#manual-backup-restore" title="Permalink to this headline">¶</a></h1>
+<p>You must have an account’s keyfile to be able to send any transaction from that account. Keyfiles are found in the keystore subdirectory of your Ethereum node’s data directory. The default data directory locations are platform specific:</p>
+<ul class="simple">
+<li>Windows: <code class="docutils literal notranslate"><span class="pre">%appdata%\Ethereum\keystore</span></code></li>
+<li>Linux: <code class="docutils literal notranslate"><span class="pre">~/.ethereum/keystore</span></code></li>
+<li>Mac: <code class="docutils literal notranslate"><span class="pre">~/Library/Ethereum/keystore</span></code></li>
+</ul>
+<p>To backup your keyfiles (accounts), copy either the individual keyfiles within the <code class="docutils literal notranslate"><span class="pre">keystore</span></code> subdirectory or copy the entire <code class="docutils literal notranslate"><span class="pre">keystore</span></code> folder.</p>
+<p>To restore your keyfiles (accounts), copy the keyfiles back into the <code class="docutils literal notranslate"><span class="pre">keystore</span></code> subdirectory, where they were originally.</p>
 </div>
 
 

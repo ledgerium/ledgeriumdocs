@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using Ledgerium console &mdash; Ledgerium Docs 0.0.1 documentation</title>
+  <title>Using Ledgerium console &mdash; Ledgerium Docs 0.1.0alpha documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Update an account" href="Update_an_account.html" />
-    <link rel="prev" title="Using Ledgerium account new" href="Using_Ledgerium_account_new.html" /> 
+    <link rel="prev" title="Using ledgerium account new" href="Using_Ledgerium_account_new.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,6 +58,10 @@
 
           
             
+            
+              <div class="version">
+                0.1
+              </div>
             
           
 
@@ -91,7 +95,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="Account_Management.html">Account Management</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="Accounts.html">Accounts</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="Creating_an_account.html">Creating an account</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="Using_Ledgerium_account_new.html">Using Ledgerium account new</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Using_Ledgerium_account_new.html">Using <code class="docutils literal notranslate"><span class="pre">ledgerium</span> <span class="pre">account</span> <span class="pre">new</span></code></a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Using Ledgerium console</a></li>
 </ul>
 </li>
@@ -198,6 +202,39 @@
             
   <div class="section" id="using-ledgerium-console">
 <h1>Using Ledgerium console<a class="headerlink" href="#using-ledgerium-console" title="Permalink to this headline">¶</a></h1>
+<p>In order to create a new account using ledgerium, we must first start ledgerium in console mode (or you can use <code class="docutils literal notranslate"><span class="pre">ledgerium</span> <span class="pre">attach</span></code> to attach a console to an already running instance):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; ledgerium console <span class="m">2</span>&gt;&gt; file_to_log_output
+instance: ledgerium/v1.4.0-unstable/linux/go1.5.1
+coinbase: coinbase: <span class="o">[</span>object Object<span class="o">]</span>
+at block: <span class="m">865174</span> <span class="o">(</span>Mon, <span class="m">18</span> Jan <span class="m">2016</span> <span class="m">02</span>:58:53 GMT<span class="o">)</span>
+datadir: /home/USERNAME/.ledgerium
+</pre></div>
+</div>
+<p>The console allows you to interact with your local node by issuing commands. For example, try the command to list your accounts:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">eth</span><span class="p">.</span><span class="nx">accounts</span>
+
+<span class="p">{</span>
+<span class="nx">code</span><span class="o">:</span> <span class="o">-</span><span class="mi">32000</span><span class="p">,</span>
+<span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;no keys in store&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This shows that you have no accounts. You can also create an account from the console:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">personal</span><span class="p">.</span><span class="nx">newAccount</span><span class="p">()</span>
+<span class="nx">Passphrase</span><span class="o">:</span>
+<span class="nx">Repeat</span> <span class="nx">passphrase</span><span class="o">:</span>
+<span class="s2">&quot;0xb2f69ddf70297958e582a0cc98bce43294f1007d&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Remember to use a strong and randomly generated password.</p>
+</div>
+<p>We just created our first account. If we try to list our accounts again we can see our new account:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">eth</span><span class="p">.</span><span class="nx">accounts</span>
+<span class="p">[</span><span class="s2">&quot;0xb2f69ddf70297958e582a0cc98bce43294f1007d&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
 </div>
 
 
@@ -211,7 +248,7 @@
         <a href="Update_an_account.html" class="btn btn-neutral float-right" title="Update an account" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Using_Ledgerium_account_new.html" class="btn btn-neutral float-left" title="Using Ledgerium account new" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Using_Ledgerium_account_new.html" class="btn btn-neutral float-left" title="Using ledgerium account new" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

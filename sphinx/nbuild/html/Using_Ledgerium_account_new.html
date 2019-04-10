@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using Ledgerium account new &mdash; Ledgerium Docs 0.0.1 documentation</title>
+  <title>Using ledgerium account new &mdash; Ledgerium Docs 0.1.0alpha documentation</title>
   
 
   
@@ -59,6 +59,10 @@
           
             
             
+              <div class="version">
+                0.1
+              </div>
+            
           
 
           
@@ -91,7 +95,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="Account_Management.html">Account Management</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="Accounts.html">Accounts</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="Creating_an_account.html">Creating an account</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Using Ledgerium account new</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Using <code class="docutils literal notranslate"><span class="pre">ledgerium</span> <span class="pre">account</span> <span class="pre">new</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="Using_Ledgerium_console.html">Using Ledgerium console</a></li>
 </ul>
 </li>
@@ -177,7 +181,7 @@
         
           <li><a href="Creating_an_account.html">Creating an account</a> &raquo;</li>
         
-      <li>Using Ledgerium account new</li>
+      <li>Using <code class="docutils literal notranslate"><span class="pre">ledgerium</span> <span class="pre">account</span> <span class="pre">new</span></code></li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -197,7 +201,40 @@
            <div itemprop="articleBody">
             
   <div class="section" id="using-ledgerium-account-new">
-<h1>Using Ledgerium account new<a class="headerlink" href="#using-ledgerium-account-new" title="Permalink to this headline">¶</a></h1>
+<h1>Using <code class="docutils literal notranslate"><span class="pre">ledgerium</span> <span class="pre">account</span> <span class="pre">new</span></code><a class="headerlink" href="#using-ledgerium-account-new" title="Permalink to this headline">¶</a></h1>
+<p>Once you have the ledgerium client installed, creating an account is merely a case of executing the <code class="docutils literal notranslate"><span class="pre">ledgerium</span> <span class="pre">account</span> <span class="pre">new</span></code> command in a terminal.</p>
+<p>Note that you do not have to run the ledgerium client or sync up with the blockchain to use the <code class="docutils literal notranslate"><span class="pre">ledgerium</span> <span class="pre">account</span></code> command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ledgerium account new
+
+  Your new account is locked with a password. Please give a password. Do not forget this password.
+  Passphrase:
+  Repeat Passphrase:
+  Address: <span class="o">{</span>168bc315a2ee09042d83d7c5811b533620531f67<span class="o">}</span>
+</pre></div>
+</div>
+<p>For non-interactive use you supply a plaintext password file as argument to the <code class="docutils literal notranslate"><span class="pre">--password</span></code> flag. The data in the file consists of the raw bytes of the password optionally followed by a single newline.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ledgerium --password /path/to/password account new
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">--password</span></code> flag is meant to be used only for testing or automation in trusted environments. It is a bad idea to save your password to file or expose it in any other way. If you do use the <code class="docutils literal notranslate"><span class="pre">--password</span></code> flag with a password file, make sure the file is not readable or even listable for anyone but you. You can achieve this in Mac/Linux systems with:</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch /path/to/password
+chmod <span class="m">600</span> /path/to/password
+cat &gt; /path/to/password
+&gt;I <span class="nb">type</span> my pass
+</pre></div>
+</div>
+<p>To list all the accounts with keyfiles currently in your <code class="docutils literal notranslate"><span class="pre">keystore</span></code> folder use the <code class="docutils literal notranslate"><span class="pre">list</span></code> subcommand of the <code class="docutils literal notranslate"><span class="pre">ledgerium</span> <span class="pre">account</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ledgerium account list
+
+account <span class="c1">#0: {a94f5374fce5edbc8e2a8697c15331677e6ebf0b}</span>
+account <span class="c1">#1: {c385233b188811c9f355d4caec14df86d6248235}</span>
+account <span class="c1">#2: {7f444580bfef4b9bc7e14eb7fb2a029336b07c9d}</span>
+</pre></div>
+</div>
+<p>The filenames of keyfiles has the format <code class="docutils literal notranslate"><span class="pre">UTC--&lt;created_at</span> <span class="pre">UTC</span> <span class="pre">ISO8601&gt;-&lt;address</span> <span class="pre">hex&gt;</span></code>. The order of accounts when listing, is lexicographic, but as a consequence of the timestamp format, it is actually order of creation.</p>
 </div>
 
 

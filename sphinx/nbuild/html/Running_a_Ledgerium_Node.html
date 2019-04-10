@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Running a Ledgerium Node &mdash; Ledgerium Docs 0.0.1 documentation</title>
+  <title>Running a Ledgerium Node &mdash; Ledgerium Docs 0.1.0alpha documentation</title>
   
 
   
@@ -59,6 +59,10 @@
           
             
             
+              <div class="version">
+                0.1
+              </div>
+            
           
 
           
@@ -92,7 +96,12 @@
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="Connecting_to_the_Network.html">Connecting to the Network</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Running a Ledgerium Node</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Running a Ledgerium Node</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#one-click-dependencies-installer">One-click Dependencies Installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual-setup">Manual Setup</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="Connecting_as_a_client.html">Connecting as a client</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Full_Node_vs_Light_Node.html">Full Node vs Light Node</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Running_a_validator_Node.html">Running a validator Node</a></li>
@@ -198,6 +207,217 @@
             
   <div class="section" id="running-a-ledgerium-node">
 <h1>Running a Ledgerium Node<a class="headerlink" href="#running-a-ledgerium-node" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>This is a full guide to set up a Ledgerium “full” node on a fresh linux machine
+The blockchain ecosystem is a combination of multiple technologies that come together. It is overwhelming to know that so much has been achieved in a short span. The tech stacks range from (not limited to this list) GoLang, NodeJs, Haskell, Metamask, Solidity and supporting Web3 technologies. Hence this will always remain as a living document for the team.</p>
+</div>
+<div class="section" id="one-click-dependencies-installer">
+<h2>One-click Dependencies Installer<a class="headerlink" href="#one-click-dependencies-installer" title="Permalink to this headline">¶</a></h2>
+<p><cite>script.sh</cite> is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.</p>
+<p>Download &lt;<a class="reference external" href="https://github.com/ledgerium/ledgeriumsetup/">https://github.com/ledgerium/ledgeriumsetup/</a>&gt;</p>
+<p>To download <strong>ledgeriumsetup</strong> go to the console and type</p>
+<ul class="simple">
+<li><cite>git clone https://github.com/ledgerium-io/ledgeriumsetup.git</cite></li>
+<li><cite>cd ledgeriumsetup</cite></li>
+<li><cite>./install_dependencies.sh</cite></li>
+</ul>
+<p>This script does the following:
+* Install prerequisite softwares (Docker and NodeJS) to run ledgerium tools.
+* Add $USER to docker group, to avoid using sudo before docker commands
+* Creates a docker network</p>
+<p>Once the dependencies are done installing go ahead and run the node</p>
+<ul class="simple">
+<li><cite>./ledgerium_setup.sh</cite></li>
+</ul>
+<p>This script prompts user for 2 parameters, type of mode (full/addon) and domain name, creates a docker-compose file and brings up the cointainers</p>
+</div>
+<div class="section" id="manual-setup">
+<h2>Manual Setup<a class="headerlink" href="#manual-setup" title="Permalink to this headline">¶</a></h2>
+<p>## Install Docker CE</p>
+<p>### SET UP THE REPOSITORY</p>
+<p>Reference: <a class="reference external" href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">https://docs.docker.com/install/linux/docker-ce/ubuntu/</a></p>
+<p>1. Update the <cite>apt</cite> package index:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span>
+<span class="pre">`</span></code></p>
+<ol class="arabic simple" start="2">
+<li>Install packages to allow <cite>apt</cite> to use a repository over HTTPS:</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">\</span>
+<span class="pre">apt-transport-https</span> <span class="pre">\</span>
+<span class="pre">ca-certificates</span> <span class="pre">\</span>
+<span class="pre">curl</span> <span class="pre">software-properties-common</span>
+<span class="pre">`</span></code></p>
+<p>3. Add Docker’s official GPG key:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">$</span> <span class="pre">curl</span> <span class="pre">-fsSL</span> <span class="pre">https://download.docker.com/linux/ubuntu/gpg</span> <span class="pre">|</span> <span class="pre">sudo</span> <span class="pre">apt-key</span> <span class="pre">add</span> <span class="pre">-</span>
+<span class="pre">`</span></code>
+should return OK</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>`
+$ sudo apt-key fingerprint 0EBFCD88</p>
+<dl class="docutils">
+<dt>pub   4096R/0EBFCD88 2017-02-22</dt>
+<dd>Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88</dd>
+</dl>
+<p>uid                  Docker Release (CE deb) &lt;<a class="reference external" href="mailto:docker&#37;&#52;&#48;docker&#46;com">docker<span>&#64;</span>docker<span>&#46;</span>com</a>&gt;
+sub   4096R/F273FCD8 2017-02-22
+<a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
+<ol class="arabic simple" start="4">
+<li>Use the following command to set up the stable repository. You always need the stable repository, even if you want to install builds from the edge or test repositories as well. To add the edge or test repository, add the word edge or test (or both) after the word stable in the commands below.</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">add-apt-repository</span> <span class="pre">&quot;deb</span> <span class="pre">[arch=amd64]</span> <span class="pre">https://download.docker.com/linux/ubuntu</span> <span class="pre">$(lsb_release</span> <span class="pre">-cs)</span> <span class="pre">stable&quot;</span> <span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span>
+<span class="pre">`</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">Note:</span> <span class="pre">The</span> <span class="pre">lsb_release</span> <span class="pre">-cs</span> <span class="pre">sub-command</span> <span class="pre">below</span> <span class="pre">returns</span> <span class="pre">the</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">Ubuntu</span> <span class="pre">distribution,</span> <span class="pre">such</span> <span class="pre">as</span> <span class="pre">xenial.</span> <span class="pre">Sometimes,</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">distribution</span> <span class="pre">like</span> <span class="pre">Linux</span> <span class="pre">Mint,</span> <span class="pre">you</span> <span class="pre">might</span> <span class="pre">need</span> <span class="pre">to</span> <span class="pre">change</span> <span class="pre">$(lsb_release</span> <span class="pre">-cs)</span> <span class="pre">to</span> <span class="pre">your</span> <span class="pre">parent</span> <span class="pre">Ubuntu</span> <span class="pre">distribution.</span> <span class="pre">For</span> <span class="pre">example,</span> <span class="pre">if</span> <span class="pre">you</span> <span class="pre">are</span> <span class="pre">using</span> <span class="pre">Linux</span> <span class="pre">Mint</span> <span class="pre">Rafaela,</span> <span class="pre">you</span> <span class="pre">could</span> <span class="pre">use</span> <span class="pre">trusty.</span>
+<span class="pre">`</span></code></p>
+<p>### Install Docker CE</p>
+<ol class="arabic simple">
+<li>Update the apt package index.</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span>
+<span class="pre">`</span></code></p>
+<p>2. Install the latest version of Docker CE, or go to the next step to install a specific version:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">docker-ce</span>
+<span class="pre">`</span></code></p>
+<p>3. Verify that Docker CE is installed correctly by running the <cite>hello-world</cite> image.
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">hello-world</span>
+<span class="pre">`</span></code></p>
+<p>### Install Docker Compose</p>
+<p>Reference : <a class="reference external" href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></p>
+<ol class="arabic simple">
+<li>Run this command to download the latest version of Docker Compose:</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">curl</span> <span class="pre">-L</span> <span class="pre">&quot;https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname</span> <span class="pre">-s)-$(uname</span> <span class="pre">-m)&quot;</span> <span class="pre">-o</span> <span class="pre">/usr/local/bin/docker-compose</span>
+<span class="pre">`</span></code>
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">Note</span> <span class="pre">:</span> <span class="pre">Install</span> <span class="pre">Docker</span> <span class="pre">Engine</span> <span class="pre">version</span> <span class="pre">1.7.1</span> <span class="pre">or</span> <span class="pre">greater:</span> <span class="pre">...</span>
+<span class="pre">`</span></code>
+2. Apply executable permissions to the binary:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">$</span> <span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">/usr/local/bin/docker-compose.</span>
+<span class="pre">`</span></code>
+&gt; 1. Optionally, install command completion for the bash and zsh shell.
+&gt; 2. Test the installation by docker-compose
+&gt; <code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">&gt;</span> <span class="pre">$</span> <span class="pre">docker-compose</span> <span class="pre">--version</span>
+<span class="pre">&gt;</span> <span class="pre">docker-compose</span> <span class="pre">version</span> <span class="pre">1.23.2,</span> <span class="pre">build</span> <span class="pre">1110ad01</span>
+<span class="pre">&gt;</span> <span class="pre">`</span></code></p>
+<p>#### To create the docker group and add your user:</p>
+<p>1. Create the docker group.
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">groupadd</span> <span class="pre">docker</span>
+<span class="pre">`</span></code></p>
+<ol class="arabic simple" start="2">
+<li>Add your user to the docker group.</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-aG</span> <span class="pre">docker</span> <span class="pre">$USER</span>
+<span class="pre">`</span></code></p>
+<ol class="arabic simple" start="3">
+<li>Log out and log back in so that your group membership is re-evaluated.</li>
+</ol>
+<p>&gt; If testing on a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.</p>
+<p>&gt; On a desktop Linux environment such as X Windows, log out of your session completely and then log back in.</p>
+<p>4. Verify that you can run docker commands without sudo .
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">$</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">hello-world</span>
+<span class="pre">`</span></code></p>
+<p>## Install NodeJS
+Reference:  <a class="reference external" href="https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/">https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span>
+<span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">-y</span> <span class="pre">upgrade</span> <span class="pre">&amp;&amp;</span>
+<span class="pre">curl</span> <span class="pre">-sL</span> <span class="pre">https://deb.nodesource.com/setup_8.x</span> <span class="pre">-o</span> <span class="pre">nodesource_setup.sh</span> <span class="pre">&amp;&amp;</span>
+<span class="pre">sudo</span> <span class="pre">bash</span> <span class="pre">nodesource_setup.sh</span> <span class="pre">&amp;&amp;</span>
+<span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">nodejs</span> <span class="pre">&amp;&amp;</span>
+<span class="pre">rm</span> <span class="pre">nodesource_setup.sh</span>
+<span class="pre">`</span></code></p>
+<p>## Blockchain full Node setup</p>
+<p>### 1. Clone Ledgerium tools
+Ledgerium tools is used to create a docker-compose.yml file
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">git</span> <span class="pre">clone</span> <span class="pre">http://github.com/ledgerium/ledgeriumtools.git</span>
+<span class="pre">cd</span> <span class="pre">ledgeriumtools</span>
+<span class="pre">npm</span> <span class="pre">install</span>
+<span class="pre">`</span></code></p>
+<p>Update initialparams.json file :
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">vi</span> <span class="pre">initialparams.json</span>
+<span class="pre">`</span></code>
+Change <cite>modeType = full</cite>, <cite>nodeName = $(hostname)</cite> and <cite>domainName</cite></p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">Note:</span> <span class="pre">User</span> <span class="pre">has</span> <span class="pre">to</span> <span class="pre">edit</span> <span class="pre">these</span> <span class="pre">values</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">json</span> <span class="pre">file</span> <span class="pre">before</span> <span class="pre">running</span> <span class="pre">ledgerium</span> <span class="pre">tools</span> <span class="pre">application</span>
+<span class="pre">`</span></code></p>
+<p>### 2. Create a docker network
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">docker</span> <span class="pre">network</span> <span class="pre">create</span> <span class="pre">-d</span> <span class="pre">bridge</span> <span class="pre">--subnet</span> <span class="pre">172.19.240.0/24</span> <span class="pre">--gateway</span> <span class="pre">172.19.240.1</span> <span class="pre">test_net</span>
+<span class="pre">`</span></code></p>
+<p>### 3. Run Ledgerium tools application</p>
+<p>Run ledgerium tools application. Note: ‘Number of Mnemonics’ refers to the amount of nodes you want to spawn (minimum 4)
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">node</span> <span class="pre">index.js</span>
+<span class="pre">`</span></code></p>
+<p>docker-compose will be generated in output folder</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">cd</span> <span class="pre">output</span>
+<span class="pre">sudo</span> <span class="pre">docker-compose</span> <span class="pre">up</span> <span class="pre">-d</span>
+<span class="pre">`</span></code></p>
+<p>### 4. Check application status</p>
+<p>Check the ./logs/constellationLogs and ./logs/gethLogs folders are created.</p>
+<ul>
+<li><p class="first"><cite>docker ps -a</cite> shows list of containers mentioned below</p>
+<blockquote>
+<div><ul class="simple">
+<li>Quorum node, governance_app_ui and constellation for each node</li>
+<li>Quorum maker</li>
+<li>Eth-stats</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Running <cite>geth attach</cite> command will work for quorum nodes.</p>
+</li>
+</ul>
+<p>### 5. Update ledgerium network repository
+After running <cite>ledgeriumtools</cite> application, <cite>ledgeriumnetwork</cite> folder ( which contains genesis and static-nodes files) will be created outside the <cite>ledgeriumtools</cite> folder. Push those files to <cite>ledgeriumnetwork</cite> repository.</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">cd</span> <span class="pre">../../ledgeriumnetwork</span>
+<span class="pre">git</span> <span class="pre">push</span> <span class="pre">https://github.com/ledgerium/ledgeriumnetwork.git</span>
+<span class="pre">`</span></code>
+# Deconstructing the docker-compose.yml file</p>
+<p>A genereated docker compose file will consist of 3 image containers per node. These are as follows:</p>
+<ol class="arabic">
+<li><p class="first">Ledgerium Core</p>
+<blockquote>
+<div><p>Purpose: This is the actual validator node</p>
+<p>Ports required:</p>
+<p><cite>30303</cite> Network listening port</p>
+<p><cite>8545</cite> HTTP-RPC server listening port</p>
+<p><cite>9000</cite> WS-RPC server listening port</p>
+</div></blockquote>
+</li>
+<li><p class="first">Constellation or Tessera</p>
+<blockquote>
+<div><p>Purpose: Quorum Transaction Manager - implementation of peer-to-peer encrypted message exchange for transaction privacy</p>
+<p>Ports required:</p>
+<p><cite>10000</cite></p>
+</div></blockquote>
+</li>
+<li><p class="first">Governance App</p>
+<blockquote>
+<div><p>Purpose: Goveranance App contains smart contracts to manage admin and individual validators to come on platform</p>
+<p>Ports required:</p>
+<p><cite>3545</cite></p>
+</div></blockquote>
+</li>
+</ol>
+</div>
 </div>
 
 

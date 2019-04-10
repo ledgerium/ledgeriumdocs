@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Importing an unencrypted private key &mdash; Ledgerium Docs 0.0.1 documentation</title>
+  <title>Importing an unencrypted private key &mdash; Ledgerium Docs 0.1.0alpha documentation</title>
   
 
   
@@ -58,6 +58,10 @@
 
           
             
+            
+              <div class="version">
+                0.1
+              </div>
             
           
 
@@ -199,6 +203,34 @@
             
   <div class="section" id="importing-an-unencrypted-private-key">
 <h1>Importing an unencrypted private key<a class="headerlink" href="#importing-an-unencrypted-private-key" title="Permalink to this headline">¶</a></h1>
+<p>Importing an unencrypted private key is supported by <code class="docutils literal notranslate"><span class="pre">geth</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>geth account import /path/to/&lt;keyfile&gt;
+</pre></div>
+</div>
+<p>This command imports an unencrypted private key from the plain text file <code class="docutils literal notranslate"><span class="pre">&lt;keyfile&gt;</span></code> and creates a new account and prints the address.
+The keyfile is assumed to contain an unencrypted private key as canonical EC raw bytes encoded into hex.
+The account is saved in encrypted format, you are prompted for a passphrase. You must remember this passphrase to unlock your account in the future.</p>
+<p>An example where the data directory is specified. If the <code class="docutils literal notranslate"><span class="pre">--datadir</span></code> flag is not used, the new account will be created in the default data directory, i.e., the keyfile will be placed in the <code class="docutils literal notranslate"><span class="pre">keystore</span></code> subdirectory of the data directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ geth --datadir /someOtherEthDataDir  account import ./key.prv
+The new account will be encrypted with a passphrase.
+Please enter a passphrase now.
+Passphrase:
+Repeat Passphrase:
+Address: <span class="o">{</span>7f444580bfef4b9bc7e14eb7fb2a029336b07c9d<span class="o">}</span>
+</pre></div>
+</div>
+<p>For non-interactive use the passphrase can be specified with the <code class="docutils literal notranslate"><span class="pre">--password</span></code> flag:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>geth --password &lt;passwordfile&gt; account import &lt;keyfile&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Since you can directly copy your encrypted accounts to another Ethereum instance, this import/export mechanism is not needed when you transfer an account between nodes.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">When you copy keys into an existing node’s <code class="docutils literal notranslate"><span class="pre">keystore</span></code>, the order of accounts you are used to may change. Therefore you make sure you either do not rely on the account order or double-check and update the indexes used in your scripts.</p>
+</div>
 </div>
 
 

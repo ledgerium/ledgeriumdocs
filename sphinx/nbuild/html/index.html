@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Ledgerium Docs’s documentation! &mdash; Ledgerium Docs 0.0.1 documentation</title>
+  <title>Welcome to Ledgerium Docs’s documentation! &mdash; Ledgerium Docs 0.1.0alpha documentation</title>
   
 
   
@@ -57,6 +57,10 @@
 
           
             
+            
+              <div class="version">
+                0.1
+              </div>
             
           
 
@@ -200,7 +204,7 @@
 <p class="caption"><span class="caption-text">LEDGERIUM OVERVIEW</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Core.html">Ledgerium Core</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EVM.html">EVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EVM.html">EVM (Ethereum Virtual Machine)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Smart_Contracts.html">Smart Contracts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DAO.html">DAO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Quorum.html">Quorum</a><ul>
@@ -229,7 +233,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html">Account Management</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Accounts.html">Accounts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Creating_an_account.html">Creating an account</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Using_Ledgerium_account_new.html">Using Ledgerium account new</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Using_Ledgerium_account_new.html">Using <code class="docutils literal notranslate"><span class="pre">ledgerium</span> <span class="pre">account</span> <span class="pre">new</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="Using_Ledgerium_console.html">Using Ledgerium console</a></li>
 </ul>
 </li>
@@ -243,11 +247,21 @@
 <li class="toctree-l3"><a class="reference internal" href="Keyfiles.html">Keyfiles</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="Account_Management.html#id1">Account Management</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="XLG_supply.html">XLG supply</a></li>
-<li class="toctree-l2"><a class="reference internal" href="What_is_XLG.html">What is XLG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="What_is_XLG.html">XLG</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="What_is_XLG.html#what-is-xlg">What is XLG?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="What_is_XLG.html#denominations">Denominations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="What_is_XLG.html#xlg-supply">XLG supply</a></li>
+<li class="toctree-l3"><a class="reference internal" href="What_is_XLG.html#getting-ether">Getting ether</a></li>
+<li class="toctree-l3"><a class="reference internal" href="What_is_XLG.html#gas-and-ether">Gas and ether</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="How_to_get_XLG.html">How to get XLG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Wallets.html">Wallets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Sending_XLG.html">Sending XLG</a></li>
@@ -256,8 +270,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Connecting_to_the_Network.html">Connecting to the Network</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Running_a_Ledgerium_Node.html">Running a Ledgerium Node</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Connecting_as_a_client.html">Connecting as a client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Running_a_Ledgerium_Node.html">Running a Ledgerium Node</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Running_a_Ledgerium_Node.html#getting-started">Getting started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Running_a_Ledgerium_Node.html#one-click-dependencies-installer">One-click Dependencies Installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Running_a_Ledgerium_Node.html#manual-setup">Manual Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Connecting_as_a_client.html">Connecting as a client</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Connecting_as_a_client.html#connecting-to-ledgerium-clients">Connecting to Ledgerium Clients</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="Full_Node_vs_Light_Node.html">Full Node vs Light Node</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Running_a_validator_Node.html">Running a validator Node</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Prerequisites.html">Prerequisites</a><ul>
@@ -298,19 +322,23 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">LEDGERIUM CONTRACT AND TRANSACTIONS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Account_Types,_Gas,_and_Transactions.html">Account Types, Gas, and Transactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Contracts.html">Contracts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Creating_public_transactions_contracts.html">Creating public transactions/contracts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Modified_privacy_API.html">Modified privacy API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Deploying_smart_contracts.html">Deploying smart contracts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Quorum_contract_design_considerations.html">Quorum contract design considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Types,_Gas,_and_Transactions.html">Account Types, Gas, and Transactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Account_Types,_Gas,_and_Transactions.html#eoa-vs-contract-accounts">EOA vs contract accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Account_Types,_Gas,_and_Transactions.html#what-is-a-transaction">What is a transaction?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Account_Types,_Gas,_and_Transactions.html#what-is-a-message">What is a message?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Account_Types,_Gas,_and_Transactions.html#what-is-gas">What is gas?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Account_Types,_Gas,_and_Transactions.html#estimating-transaction-costs">Estimating transaction costs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Account_Types,_Gas,_and_Transactions.html#account-interactions-example-betting-contract">Account interactions example - betting contract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Account_Types,_Gas,_and_Transactions.html#signing-transactions-offline">Signing transactions offline</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Contracts.html">Contracts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Accessing_Contracts_and_Transactions.html">Accessing Contracts and Transactions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="LedgeriumWeb3js.html">LedgeriumWeb3js</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Console.html">Console</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Viewing_Contracts_and_Transactions.html">Viewing Contracts and Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RPC.html">RPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Accessing_Contracts_and_Transactions.html#id1">Accessing Contracts and Transactions</a></li>
 </ul>
 </li>
 </ul>
