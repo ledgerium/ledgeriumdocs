@@ -1,9 +1,13 @@
 Prerequisites
 ==========================================
 
-.. toctree::
-	:maxdepth: 2
-	:caption: Prerequisites
+NodeJS
+------
 
-	NodeJS
-	GoLang
+Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+
+
+GoLang
+------
+
+Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.

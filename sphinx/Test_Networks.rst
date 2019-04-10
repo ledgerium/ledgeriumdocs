@@ -1,8 +1,7 @@
 Test Networks
 ==========================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Test Networks
+Connecting to Ledgerium TestNet
+-------------------------------
 
-   Connecting_to_Ledgerium_TestNet
+http://testnet.ledgerium.net
