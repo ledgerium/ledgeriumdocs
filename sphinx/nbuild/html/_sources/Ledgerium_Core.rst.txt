@@ -5,7 +5,6 @@ Ledgerium Core
    :caption: Ledgerium Core
 
    EVM
-   Smart_Contracts
    DAO
    Quorum
    Using_Ledgerium
