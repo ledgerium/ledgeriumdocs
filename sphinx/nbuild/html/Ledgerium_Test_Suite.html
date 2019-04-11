@@ -116,6 +116,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ledgerium Test Suite</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#faulty-node-test">Faulty Node Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quorum-acceptance-tests">Quorum Acceptance Tests</a></li>
 </ul>
 </li>
 </ul>
@@ -195,27 +196,12 @@
 <div class="section" id="faulty-node-test">
 <h2>Faulty Node Test<a class="headerlink" href="#faulty-node-test" title="Permalink to this headline">¶</a></h2>
 <p>The main focus was to test the hypothesis that a correlation exists between the time elapsed when mining stopped and how long the mining took to restart when condition 2F+1 is satisified. It appears that the faster we satisify the condition, the faster mining restarts. However, when mining has been stopped for &gt;2 hours, it has been observed mining will not resume again.</p>
-<div class="line-block">
-<div class="line">FAULTY (F) | HEALTHY (H) | REQUIRED H FOR MINING (2F+1) | MINING EXPECTED | MINING ACTUAL | PASSED | TOTAL (F+H) | NOTES |</div>
+<img alt="_images/testresult1.png" src="_images/testresult1.png" />
+<img alt="_images/testresult2.png" src="_images/testresult2.png" />
 </div>
-<p><a href="#id3"><span class="problematic" id="id4">|------------|</span></a>————-<a href="#id5"><span class="problematic" id="id6">|-----------------------|</span></a>—————–<a href="#id7"><span class="problematic" id="id8">|---------------|</span></a>——————–<a href="#id9"><span class="problematic" id="id10">|-------------|</span></a>———————————————————————————————————————–|
-| 2 | 7 | 5 | TRUE | TRUE | :white_check_mark: | 9 | Initialised  6H + 2F nodes on a fresh chain |
-| 2 | 6 | 5 | TRUE | TRUE | :white_check_mark: | 8 | -1 H node (validator 0) |
-| 1 | 6 | 3 | TRUE | TRUE | :white_check_mark: | 7 | -1 F node |
-| 2 | 6 | 5 | TRUE | TRUE | :white_check_mark: | 8 | +1 F node <a href="#id1"><span class="problematic" id="id2">|</span></a>s
-| 2 | 5 | 5 | TRUE | TRUE | :white_check_mark: | 7 | -1 H node (validator 4) |
-| 2 | 4 | 5 | FALSE | FALSE | :white_check_mark: | 6 | -1 H node (validator 5) -&gt; mining stopped |
-| 2 | 5 | 5 | TRUE | TRUE | :white_check_mark: | 7 | Let mining stop for a few minutes before bringing +1 H node (validator 5) -&gt; mining started again after a few minutes |
-| 2 | 4 | 5 | FALSE | FALSE | :white_check_mark: | 6 | -1 H node - let mining stop for 15 minutes before continuing |
-| 2 | 5 | 5 | TRUE | TRUE | :white_check_mark: | 7 | + 1H node -&gt;  15 minutes later still no mining - mining started again after 25 minutes |
-| 2 | 4 | 5 | FALSE | FALSE | :white_check_mark: | 6 | -1 H node -&gt; let mining stop for a few minutes before bringing up a H node |
-| 2 | 5 | 5 | TRUE | TRUE | :white_check_mark: | 7 | +1 H node -&gt; mining started again after a couple minutes |
-| 2 | 4 | 5 | FALSE | FALSE | :white_check_mark: | 6 | -1 H node -&gt; let mining stop for 15 minutes |
-| 2 | 5 | 5 | TRUE | TRUE | :white_check_mark: | 7 | +1H  node after mining has been stopped for 15 minutes -&gt; started again after 15 minutes |
-| 2 | 4 | 5 | FALSE | FALSE | :white_check_mark: | 6 | -1 H node -&gt;  took down for 2 hours - after about 2.5 hours we got -1 on validator list |
-| 2 | 5 | 5 | TRUE | FALSE | :x: | 7 | +1 H node -&gt; a hour later there still no mining being done |
-| 2 | 6 | 5 | TRUE | FALSE | :x: | 8 | +1 H node -&gt; no mining for 15 minutes |
-| 2 | 7 | 5 | TRUE | FALSE | :x: | 9 | +1 H node -&gt; mining never restarted |</p>
+<div class="section" id="quorum-acceptance-tests">
+<h2>Quorum Acceptance Tests<a class="headerlink" href="#quorum-acceptance-tests" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/ledgerium-io/quorum-acceptance-tests">https://github.com/ledgerium-io/quorum-acceptance-tests</a></p>
 </div>
 </div>
 
