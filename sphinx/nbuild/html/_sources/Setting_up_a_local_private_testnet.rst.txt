@@ -7,8 +7,6 @@ ONE CLICK SETUP
 
 `ledgerium_setup.sh` is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.
 
-Download <https://github.com/ledgerium/ledgeriumsetup/>
-
 To download the installer go to the console and type
 
 * `git clone https://github.com/ledgerium-io/ledgeriumsetup.git`

@@ -13,6 +13,6 @@ Local Private TestNet
 
 Your local testnet will create a faucet and will be accessible at
 
-* http://localhost:55777
+* http://localhost:5577
 
 .. image:: images/faucet.png
