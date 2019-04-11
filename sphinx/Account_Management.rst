@@ -13,8 +13,8 @@ Account Management
 
    .. _Accounts:
 
-   Accounts
-   ================================================================================
+Accounts
+================================================================================
 
    Accounts play a central role in Ledgerium. There are two types of accounts: *externally owned accounts* (EOAs) and *contract accounts*. Here we focus on externally owned accounts, which will be referred to simply as *accounts*. Contract accounts will be referred to as *contracts* and are :ref:`discussed in detail in Contracts <Contracts>`. This generic notion of account subsuming both externally owned accounts and contracts is justified in that these entities are so called *state objects*. These entities have a state: accounts have balance and contracts have both balance and contract storage. The state of all accounts is the state of the Ledgerium network which is updated with every block and which the network really needs to reach a consensus about.
    Accounts are essential for users to interact with the Ledgerium blockchain via transactions.
@@ -23,8 +23,8 @@ Account Management
 
    Accounts represent identities of external agents (e.g., human personas, mining nodes or automated agents). Accounts use public key cryptography to sign transactions so that the EVM can securely validate the identity of a transaction sender.
 
-   Keyfiles
-   ================================================================================
+Keyfiles
+================================================================================
 
    Every account is defined by a pair of keys, a private key and public key. Accounts are indexed by their *address* which is derived from the public key by taking the last 20 bytes. Every private key/address pair is encoded in a *keyfile*. Keyfiles are JSON text files which you can open and view in any text editor. The critical component of the keyfile, your account’s private key, is always encrypted, and it is encrypted with the password you enter when you create the account. Keyfiles are found in the ``keystore`` subdirectory of your Ledgerium node’s data directory. Make sure you backup your keyfiles regularly! See the section :ref:`backup-and-restore-accounts` for more information.
 
@@ -43,8 +43,8 @@ Account Management
 
    .. _creating_an_account:
 
-   Creating an account
-   ================================================================================
+Creating an account
+================================================================================
 
    .. Warning:: |remember_backup| In order to send transactions from an account, including sending ether, you must have BOTH the keyfile and the password. Be absolutely sure to have a copy of your keyfile AND remember the password for that keyfile, and store them both as securely as possible. There are no escape routes here; lose the keyfile or forget your password and all your ether is gone. It is NOT possible to access your account without a password and there is no *forgot my password* option here. Do not forget it.
 
@@ -52,8 +52,8 @@ Account Management
 
       <strong>Remember your passwords and <a href="#backup-and-restore-accounts">backup your keyfiles</a>.</strong>
 
-   Using ``geth account new``
-   --------------------------------------------------------------------------------
+Using ``geth account new``
+--------------------------------------------------------------------------------
 
    Once you have the geth client installed, creating an account is merely a case of executing the ``geth account new`` command in a terminal.
 
@@ -98,8 +98,8 @@ Account Management
    The filenames of keyfiles has the format ``UTC--<created_at UTC ISO8601>-<address hex>``. The order of accounts when listing, is lexicographic, but as a consequence of the timestamp format, it is actually order of creation.
 
 
-   Using geth console
-   --------------------------------------------------------------------------------
+Using geth console
+--------------------------------------------------------------------------------
 
    In order to create a new account using geth, we must first start geth in console mode (or you can use ``geth attach`` to attach a console to an already running instance):
 
@@ -143,8 +143,8 @@ Account Management
 
    .. _using-mist-Ledgerium-wallet:
 
-   Using Mist Ledgerium wallet
-   --------------------------------------------------------------------------------
+Using Mist Ledgerium wallet
+--------------------------------------------------------------------------------
 
    For the command line averse, there is now a GUI-based option for creating accounts: The “official” Mist Ledgerium wallet. The Mist Ledgerium wallet, and its parent Mist project, are being developed under the auspices of the Ledgerium Foundation, hence the “official” status. Versions of the wallet app are available for Linux, Mac OS X, and Windows.
 
@@ -179,8 +179,8 @@ Account Management
    .. Note:: The Mist wallet is still in active development, so details of the steps outlined above may change with upgrades.
 
 
-   Creating a Multi-Signature Wallet in Mist
-   --------------------------------------------------------------------------------
+Creating a Multi-Signature Wallet in Mist
+--------------------------------------------------------------------------------
 
    The Mist Ledgerium wallet has an option to secure your wallet balance with a multisig wallet. The advantage of using a multisig wallet is that it requires authorization from more than one account to withdraw larger amounts from your balance. Before you can create a multisig wallet, you'll need to create more than one account.
 
@@ -215,8 +215,8 @@ Account Management
    * "Wrong password" notice. This seems to be a false notice on occasion on current Mist versions. Restart Mist and the problem should go away (if you indeed entered the correct password).
 
 
-   Using Eth
-   --------------------------------------------------------------------------------
+Using Eth
+--------------------------------------------------------------------------------
 
    Every option related to key management available using geth can be used the same way in eth.
 
@@ -251,75 +251,12 @@ Account Management
      }
 
 
-   Using EthKey (deprecated)
-   --------------------------------------------------------------------------------
-
-   Ethkey is a CLI tool of the C++ implementation that allows you to interact with the Ledgerium wallet. With it you can list, inspect, create, delete and modify keys and inspect, create and sign transactions.
-
-   We will assume you have not yet run a client such as eth or anything in the Aleth series of clients. If you have, you can skip this section.
-   To create a wallet, run ``ethkey`` with the ``createwallet`` command:
-
-   .. code-block:: bash
-
-     > ethkey createwallet
-
-   Please enter a MASTER passphrase to protect your key store (make it strong!):
-   You'll be asked for a "master" passphrase. This protects your privacy and acts as a default password for any keys. You'll need to confirm it by entering the same text again.
-
-   .. Note:: Use a strong randomly generated password.
-
-   We can list the keys within the wallet simply by using the list command:
-
-   .. code-block:: bash
-
-     > ethkey list
-
-     No keys found.
-
-   We haven't yet created any keys, and it's telling us so! Let's create one.
-
-   To create a key, we use the ``new`` command. To use it we must pass a name - this is the name we'll give to this account in the wallet. Let's call it "test":
-
-   .. code-block:: bash
-
-     > ethkey new test
-
-   Enter a passphrase with which to secure this account (or nothing to use the master passphrase).
-   It will prompt you to enter a passphrase to protect this key. If you just press enter, it'll use the default "master" passphrase. Typically this means you won't need to enter the passphrase for the key when you want to use the account (since it remembers the master passphrase). In general, you should try to use a different passphrase for each key since it prevents one compromised passphrase from giving access to other accounts. However, out of convenience you might decide that for low-security accounts to use the same passphrase.
-
-   Here, let's give it the incredibly imaginative passphrase of 123. (Never ever use simple passwords like this for anything else than ephemeral test accounts).
-   Once you enter a passphrase, it'll ask you to confirm it by entering again. Enter 123 a second time.
-   Because you gave it its own passphrase, it'll also ask you to provide a hint for this password which will be displayed to you whenever it asks you to enter it. The hint is stored in the wallet and is itself protected by the master passphrase. Enter the truly awful hint of 321 backwards.
-
-   .. code-block:: bash
-
-     > ethkey new test
-
-     Enter a passphrase with which to secure this account (or nothing to use the master passphrase):
-     Please confirm the passphrase by entering it again:
-     Enter a hint to help you remember this passphrase: 321 backwards
-     Created key 055dde03-47ff-dded-8950-0fe39b1fa101
-       Name: test
-       Password hint: 321 backwards
-       ICAP: XE472EVKU3CGMJF2YQ0J9RO1Y90BC0LDFZ
-       Raw hex: 0092e965928626f8880629cec353d3fd7ca5974f
-
-   All normal (aka direct) ICAP addresses begin with XE so you should be able to recognize them easily. Notice also that the key has another identifier after Created key. This is known as the UUID. This is a unique identifier for the key that has absolutely nothing to do with the account itself. Knowing it does nothing to help an attacker discover who you are on the network. It also happens to be the filename for the key, which you can find in either ~/.web3/keys (Mac or Linux) or $HOME/AppData/Web3/keys (Windows).
-   Now let's make sure it worked properly by listing the keys in the wallet:
-
-   .. code-block:: bash
-
-     > ethkey list
-     055dde03-47ff-dded-8950-0fe39b1fa101 0092e965… XE472EVKU3CGMJF2YQ0J9RO1Y90BC0LDFZ  test
-
-   It reports one key on each line (for a total of one key here). In this case our key is stored in a file 055dde... and has an ICAP address beginning XE472EVK.... Not especially easy things to remember so rather helpful that it has its proper name, test, too.
-
-   Importing your presale wallet
-   ================================================================================
+Importing your presale wallet
+================================================================================
 
 
-   Using Mist Ledgerium wallet
-   --------------------------------------------------------------------------------
+Using Mist Ledgerium wallet
+--------------------------------------------------------------------------------
 
    Importing your presale wallet using the GUI Mist Ledgerium wallet is very easy. In fact, you will be asked if you want to import your presale wallet during the installation of the app.
 
@@ -340,8 +277,8 @@ Account Management
 
    .. Note:: The Mist wallet is still in active development, so details of the steps outlined above may change with upgrades.
 
-   Using geth
-   --------------------------------------------------------------------------------
+Using geth
+--------------------------------------------------------------------------------
 
    If you have a standalone installation of geth, importing your presale wallet is accomplished by executing the following command in a terminal:
 
@@ -351,13 +288,13 @@ Account Management
 
    You will be prompted to enter your password.
 
-   Updating an account
-   ================================================================================
+Updating an account
+================================================================================
 
    You are able to upgrade your keyfile to the latest keyfile format and/or upgrade your keyfile password.
 
-   Using geth
-   --------------------------------------------------------------------------------
+Using geth
+--------------------------------------------------------------------------------
 
    You can update an existing account on the command line with the ``update`` subcommand with the account address or index as parameter. Remember that the account index reflects the order of creation (lexicographic order of keyfile names containing the creation time).
 
@@ -401,11 +338,11 @@ Account Management
 
    .. _backup-and-restore-accounts:
 
-   Backup and restore accounts
-   ================================================================================
+Backup and restore accounts
+================================================================================
 
-   Manual backup/restore
-   --------------------------------------------------------------------------------
+Manual backup/restore
+--------------------------------------------------------------------------------
 
    You must have an account’s keyfile to be able to send any transaction from that account. Keyfiles are found in the keystore subdirectory of your Ledgerium node’s data directory. The default data directory locations are platform specific:
 
@@ -417,8 +354,8 @@ Account Management
 
    To restore your keyfiles (accounts), copy the keyfiles back into the ``keystore`` subdirectory, where they were originally.
 
-   Importing an unencrypted private key
-   --------------------------------------------------------------------------------
+Importing an unencrypted private key
+--------------------------------------------------------------------------------
 
    Importing an unencrypted private key is supported by ``geth``
 

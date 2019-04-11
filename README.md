@@ -1,2 +1,3 @@
-# ledgerium Public Documentation
-Ledgerium Public Document repository on readthedoc platform
+# Ledgerium Public Documentation
+
+Ledgerium Public Document Repository on ReadTheDocs platform

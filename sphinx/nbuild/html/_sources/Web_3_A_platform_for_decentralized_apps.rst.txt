@@ -20,7 +20,6 @@ Further Watching/Reading:
 Smart contracts
 ================================================================================
 
-by Alex:
 
 Would you enter in a contract with someone you've never met? Would you agree to lend money to some farmer in Ethiopia? Would you become an investor in a minority-run newspaper in a war zone? Would you go to the hassle of writing up a legal binding contract for a $5 dollar purchase over the internet?
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Running a Ledgerium Node &mdash; Ledgerium Docs 0.1.0alpha documentation</title>
+  <title>Running a Ledgerium Master Node &mdash; Ledgerium Docs 1.1.0alpha documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1
+                1.1
               </div>
             
           
@@ -93,13 +93,28 @@
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Core.html">Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connecting_to_Ledgerium_Core.html">Connecting to Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#accounts">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#keyfiles">Keyfiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#creating-an-account">Creating an account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#importing-your-presale-wallet">Importing your presale wallet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#updating-an-account">Updating an account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#backup-and-restore-accounts">Backup and restore accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="Connecting_to_the_Network.html">Connecting to the Network</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Running a Ledgerium Node</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Running a Ledgerium Master Node</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#getting-started">Getting started</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#one-click-dependencies-installer">One-click Dependencies Installer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#manual-setup">Manual Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-is-mnemonics">What is Mnemonics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-setup">Manual Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#set-up-the-repository">SET UP THE REPOSITORY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-docker-ce">Install Docker CE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-docker-compose">Install Docker Compose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#to-create-the-docker-group-and-add-your-user">To create the docker group and add your user:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-nodejs">Install NodeJS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#blockchain-full-node-setup">Blockchain full Node setup</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Connecting_as_a_client.html">Connecting as a client</a></li>
@@ -112,11 +127,11 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private testnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private TestNet</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private testnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private TestNet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG_Reward.html">XLG Reward</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Application.html">Ledgerium Application</a></li>
 </ul>
@@ -186,7 +201,7 @@
         
           <li><a href="Connecting_to_the_Network.html">Connecting to the Network</a> &raquo;</li>
         
-      <li>Running a Ledgerium Node</li>
+      <li>Running a Ledgerium Master Node</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -205,16 +220,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="running-a-ledgerium-node">
-<h1>Running a Ledgerium Node<a class="headerlink" href="#running-a-ledgerium-node" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="running-a-ledgerium-master-node">
+<h1>Running a Ledgerium Master Node<a class="headerlink" href="#running-a-ledgerium-master-node" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<p>This is a full guide to set up a Ledgerium “full” node on a fresh linux machine
+<p>This is a full guide to set up a Ledgerium “addon” node on a fresh linux machine
 The blockchain ecosystem is a combination of multiple technologies that come together. It is overwhelming to know that so much has been achieved in a short span. The tech stacks range from (not limited to this list) GoLang, NodeJs, Haskell, Metamask, Solidity and supporting Web3 technologies. Hence this will always remain as a living document for the team.</p>
 </div>
 <div class="section" id="one-click-dependencies-installer">
 <h2>One-click Dependencies Installer<a class="headerlink" href="#one-click-dependencies-installer" title="Permalink to this headline">¶</a></h2>
-<p><cite>script.sh</cite> is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.</p>
+<p><cite>ledgerium_setup.sh</cite> is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.</p>
 <p>Download &lt;<a class="reference external" href="https://github.com/ledgerium/ledgeriumsetup/">https://github.com/ledgerium/ledgeriumsetup/</a>&gt;</p>
 <p>To download <strong>ledgeriumsetup</strong> go to the console and type</p>
 <ul class="simple">
@@ -230,12 +245,18 @@ The blockchain ecosystem is a combination of multiple technologies that come tog
 <ul class="simple">
 <li><cite>./ledgerium_setup.sh</cite></li>
 </ul>
-<p>This script prompts user for 2 parameters, type of mode (full/addon) and domain name, creates a docker-compose file and brings up the cointainers</p>
+<p>This script prompts user for 3 parameters, mode <cite>addon</cite>, numbers of nodes, and mnemonics for each node. The script creates a docker-compose file and brings up the cointainers</p>
 </div>
+<div class="section" id="what-is-mnemonics">
+<h2>What is Mnemonics<a class="headerlink" href="#what-is-mnemonics" title="Permalink to this headline">¶</a></h2>
+<p>The mnemonic is just a random string</p>
+</div>
+</div>
+<hr class="docutils" />
 <div class="section" id="manual-setup">
-<h2>Manual Setup<a class="headerlink" href="#manual-setup" title="Permalink to this headline">¶</a></h2>
-<p>## Install Docker CE</p>
-<p>### SET UP THE REPOSITORY</p>
+<h1>Manual Setup<a class="headerlink" href="#manual-setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="set-up-the-repository">
+<h2>SET UP THE REPOSITORY<a class="headerlink" href="#set-up-the-repository" title="Permalink to this headline">¶</a></h2>
 <p>Reference: <a class="reference external" href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">https://docs.docker.com/install/linux/docker-ce/ubuntu/</a></p>
 <p>1. Update the <cite>apt</cite> package index:
 <code class="docutils literal notranslate"><span class="pre">`</span>
@@ -273,7 +294,9 @@ sub   4096R/F273FCD8 2017-02-22
 <p><code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">Note:</span> <span class="pre">The</span> <span class="pre">lsb_release</span> <span class="pre">-cs</span> <span class="pre">sub-command</span> <span class="pre">below</span> <span class="pre">returns</span> <span class="pre">the</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">Ubuntu</span> <span class="pre">distribution,</span> <span class="pre">such</span> <span class="pre">as</span> <span class="pre">xenial.</span> <span class="pre">Sometimes,</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">distribution</span> <span class="pre">like</span> <span class="pre">Linux</span> <span class="pre">Mint,</span> <span class="pre">you</span> <span class="pre">might</span> <span class="pre">need</span> <span class="pre">to</span> <span class="pre">change</span> <span class="pre">$(lsb_release</span> <span class="pre">-cs)</span> <span class="pre">to</span> <span class="pre">your</span> <span class="pre">parent</span> <span class="pre">Ubuntu</span> <span class="pre">distribution.</span> <span class="pre">For</span> <span class="pre">example,</span> <span class="pre">if</span> <span class="pre">you</span> <span class="pre">are</span> <span class="pre">using</span> <span class="pre">Linux</span> <span class="pre">Mint</span> <span class="pre">Rafaela,</span> <span class="pre">you</span> <span class="pre">could</span> <span class="pre">use</span> <span class="pre">trusty.</span>
 <span class="pre">`</span></code></p>
-<p>### Install Docker CE</p>
+</div>
+<div class="section" id="install-docker-ce">
+<h2>Install Docker CE<a class="headerlink" href="#install-docker-ce" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Update the apt package index.</li>
 </ol>
@@ -288,7 +311,9 @@ sub   4096R/F273FCD8 2017-02-22
 <code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">hello-world</span>
 <span class="pre">`</span></code></p>
-<p>### Install Docker Compose</p>
+</div>
+<div class="section" id="install-docker-compose">
+<h2>Install Docker Compose<a class="headerlink" href="#install-docker-compose" title="Permalink to this headline">¶</a></h2>
 <p>Reference : <a class="reference external" href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></p>
 <ol class="arabic simple">
 <li>Run this command to download the latest version of Docker Compose:</li>
@@ -309,7 +334,9 @@ sub   4096R/F273FCD8 2017-02-22
 <span class="pre">&gt;</span> <span class="pre">$</span> <span class="pre">docker-compose</span> <span class="pre">--version</span>
 <span class="pre">&gt;</span> <span class="pre">docker-compose</span> <span class="pre">version</span> <span class="pre">1.23.2,</span> <span class="pre">build</span> <span class="pre">1110ad01</span>
 <span class="pre">&gt;</span> <span class="pre">`</span></code></p>
-<p>#### To create the docker group and add your user:</p>
+</div>
+<div class="section" id="to-create-the-docker-group-and-add-your-user">
+<h2>To create the docker group and add your user:<a class="headerlink" href="#to-create-the-docker-group-and-add-your-user" title="Permalink to this headline">¶</a></h2>
 <p>1. Create the docker group.
 <code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">groupadd</span> <span class="pre">docker</span>
@@ -329,8 +356,10 @@ sub   4096R/F273FCD8 2017-02-22
 <code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">$</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">hello-world</span>
 <span class="pre">`</span></code></p>
-<p>## Install NodeJS
-Reference:  <a class="reference external" href="https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/">https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/</a></p>
+</div>
+<div class="section" id="install-nodejs">
+<h2>Install NodeJS<a class="headerlink" href="#install-nodejs" title="Permalink to this headline">¶</a></h2>
+<p>Reference:  <a class="reference external" href="https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/">https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span>
 <span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">-y</span> <span class="pre">upgrade</span> <span class="pre">&amp;&amp;</span>
@@ -339,9 +368,16 @@ Reference:  <a class="reference external" href="https://linuxize.com/post/how-to
 <span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">nodejs</span> <span class="pre">&amp;&amp;</span>
 <span class="pre">rm</span> <span class="pre">nodesource_setup.sh</span>
 <span class="pre">`</span></code></p>
-<p>## Blockchain full Node setup</p>
-<p>### 1. Clone Ledgerium tools
-Ledgerium tools is used to create a docker-compose.yml file
+</div>
+<div class="section" id="blockchain-full-node-setup">
+<h2>Blockchain full Node setup<a class="headerlink" href="#blockchain-full-node-setup" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><ol class="first arabic">
+<li>Clone Ledgerium tools</li>
+</ol>
+</li>
+</ul>
+<p>Ledgerium tools is used to create a docker-compose.yml file
 <code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">http://github.com/ledgerium/ledgeriumtools.git</span>
 <span class="pre">cd</span> <span class="pre">ledgeriumtools</span>
@@ -355,11 +391,21 @@ Change <cite>modeType = full</cite>, <cite>nodeName = $(hostname)</cite> and <ci
 <p><code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">Note:</span> <span class="pre">User</span> <span class="pre">has</span> <span class="pre">to</span> <span class="pre">edit</span> <span class="pre">these</span> <span class="pre">values</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">json</span> <span class="pre">file</span> <span class="pre">before</span> <span class="pre">running</span> <span class="pre">ledgerium</span> <span class="pre">tools</span> <span class="pre">application</span>
 <span class="pre">`</span></code></p>
-<p>### 2. Create a docker network
-<code class="docutils literal notranslate"><span class="pre">`</span>
+<ul class="simple">
+<li><ol class="first arabic" start="2">
+<li>Create a docker network</li>
+</ol>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">docker</span> <span class="pre">network</span> <span class="pre">create</span> <span class="pre">-d</span> <span class="pre">bridge</span> <span class="pre">--subnet</span> <span class="pre">172.19.240.0/24</span> <span class="pre">--gateway</span> <span class="pre">172.19.240.1</span> <span class="pre">test_net</span>
 <span class="pre">`</span></code></p>
-<p>### 3. Run Ledgerium tools application</p>
+<ul class="simple">
+<li><ol class="first arabic" start="3">
+<li>Run Ledgerium tools application</li>
+</ol>
+</li>
+</ul>
 <p>Run ledgerium tools application. Note: ‘Number of Mnemonics’ refers to the amount of nodes you want to spawn (minimum 4)
 <code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">node</span> <span class="pre">index.js</span>
@@ -369,7 +415,12 @@ Change <cite>modeType = full</cite>, <cite>nodeName = $(hostname)</cite> and <ci
 <span class="pre">cd</span> <span class="pre">output</span>
 <span class="pre">sudo</span> <span class="pre">docker-compose</span> <span class="pre">up</span> <span class="pre">-d</span>
 <span class="pre">`</span></code></p>
-<p>### 4. Check application status</p>
+<ul class="simple">
+<li><ol class="first arabic" start="4">
+<li>Check application status</li>
+</ol>
+</li>
+</ul>
 <p>Check the ./logs/constellationLogs and ./logs/gethLogs folders are created.</p>
 <ul>
 <li><p class="first"><cite>docker ps -a</cite> shows list of containers mentioned below</p>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Ledgerium Docs’s documentation! &mdash; Ledgerium Docs 0.1.0alpha documentation</title>
+  <title>Welcome to Ledgerium Docs’s documentation! &mdash; Ledgerium Docs 1.1.0alpha documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                0.1
+                1.1
               </div>
             
           
@@ -92,10 +92,16 @@
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Core.html">Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connecting_to_Ledgerium_Core.html">Connecting to Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#accounts">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#keyfiles">Keyfiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#creating-an-account">Creating an account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#importing-your-presale-wallet">Importing your presale wallet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#updating-an-account">Updating an account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#backup-and-restore-accounts">Backup and restore accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a></li>
 <li class="toctree-l1"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private testnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private TestNet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG_Reward.html">XLG Reward</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Application.html">Ledgerium Application</a></li>
 </ul>
@@ -211,7 +217,22 @@
 <li class="toctree-l3"><a class="reference internal" href="Introduction_Background.html">Introduction/Background</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Design.html">Design</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Consensus_Mecahnism_(IBFT).html">Consensus Mecahnism (IBFT)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Istanbul_RPC_API.html">Istanbul RPC API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Istanbul_RPC_API.html">Istanbul RPC API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Istanbul_RPC_API.html#istanbul-consensus">Istanbul Consensus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Istanbul_RPC_API.html#istanbul-getsnapshot">istanbul.getSnapshot()</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Istanbul_RPC_API.html#id11">}</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="Istanbul_RPC_API.html#istanbul-propose">istanbul.propose()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Istanbul_RPC_API.html#istanbul-getsnapshotathash">istanbul.getSnapshotAtHash()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Istanbul_RPC_API.html#istanbul-getcandidates-callback">istanbul.getCandidates(callback)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Istanbul_RPC_API.html#istanbul-getvalidators">istanbul.getValidators()</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Istanbul_RPC_API.html#id14">}</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="Istanbul_RPC_API.html#istanbul-working">Istanbul Working</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="Peer_Permissioning_Governance.html">Peer Permissioning/Governance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Higher_performance.html">Higher performance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Privacy_&amp;_Transparency.html">Privacy &amp; Transparency</a></li>
@@ -222,6 +243,11 @@
 <li class="toctree-l3"><a class="reference internal" href="Solidity.html">Solidity</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Core.html#quorum-private-public-hybrid-blockchain">Quorum - private/public hybrid blockchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Core.html#why-quorum">Why Quorum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Core.html#zkp">ZKP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Core.html#ibft">IBFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Core.html#why-ibft">Why IBFT</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Connecting_to_Ledgerium_Core.html">Connecting to Ledgerium Core</a><ul>
@@ -242,6 +268,7 @@
 <li class="toctree-l4"><a class="reference internal" href="Manual_backup_restore.html">Manual backup/restore</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Ledgerium_Wallet.html">Ledgerium Wallet</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="Ledgerium_Wallet.html#download">Download</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Ledgerium_Wallet.html#run-chrome">Run (Chrome)</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="Importing_an_unencrypted_private_key.html">Importing an unencrypted private key</a></li>
@@ -253,6 +280,12 @@
 <li class="toctree-l2"><a class="reference internal" href="Account_Management.html#id1">Account Management</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#accounts">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#keyfiles">Keyfiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#creating-an-account">Creating an account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#importing-your-presale-wallet">Importing your presale wallet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#updating-an-account">Updating an account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#backup-and-restore-accounts">Backup and restore accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="XLG.html#what-is-xlg">What is XLG?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="XLG.html#obtaining-xlg">Obtaining XLG</a></li>
@@ -263,10 +296,19 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Connecting_to_the_Network.html">Connecting to the Network</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Running_a_Ledgerium_Node.html">Running a Ledgerium Node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Running_a_Ledgerium_Node.html">Running a Ledgerium Master Node</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Running_a_Ledgerium_Node.html#getting-started">Getting started</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Running_a_Ledgerium_Node.html#one-click-dependencies-installer">One-click Dependencies Installer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Running_a_Ledgerium_Node.html#manual-setup">Manual Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Running_a_Ledgerium_Node.html#what-is-mnemonics">What is Mnemonics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Running_a_Ledgerium_Node.html#manual-setup">Manual Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Running_a_Ledgerium_Node.html#set-up-the-repository">SET UP THE REPOSITORY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Running_a_Ledgerium_Node.html#install-docker-ce">Install Docker CE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Running_a_Ledgerium_Node.html#install-docker-compose">Install Docker Compose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Running_a_Ledgerium_Node.html#to-create-the-docker-group-and-add-your-user">To create the docker group and add your user:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Running_a_Ledgerium_Node.html#install-nodejs">Install NodeJS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Running_a_Ledgerium_Node.html#blockchain-full-node-setup">Blockchain full Node setup</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Connecting_as_a_client.html">Connecting as a client</a><ul>
@@ -280,6 +322,7 @@
 <li class="toctree-l3"><a class="reference internal" href="Prerequisites.html">Prerequisites</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Prerequisites.html#nodejs">NodeJS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Prerequisites.html#golang">GoLang</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Prerequisites.html#docker">Docker</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Installing_LedgeriumCore.html">Installing LedgeriumCore</a></li>
@@ -297,25 +340,52 @@
 <li class="toctree-l2"><a class="reference internal" href="Prerequisites.html">Prerequisites</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Prerequisites.html#nodejs">NodeJS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Prerequisites.html#golang">GoLang</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Prerequisites.html#docker">Docker</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private testnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private TestNet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#one-click-setup">ONE CLICK SETUP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#manual-setup">MANUAL SETUP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#downloading">Downloading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#update-initialparams-json">Update initialparams.json</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#run-ledgeriumtools-application">Run ledgeriumtools application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#start-the-ledgerium-network">Start the Ledgerium Network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#confirming-ledgerium-network-is-up-and-running-correctly">Confirming Ledgerium Network is up and running correctly</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Test_Networks.html#connecting-to-ledgerium-testnet">Connecting to Ledgerium TestNet</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private testnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private TestNet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#one-click-setup">ONE CLICK SETUP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#manual-setup">MANUAL SETUP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#downloading">Downloading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#update-initialparams-json">Update initialparams.json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#run-ledgeriumtools-application">Run ledgeriumtools application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#start-the-ledgerium-network">Start the Ledgerium Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Setting_up_a_local_private_testnet.html#confirming-ledgerium-network-is-up-and-running-correctly">Confirming Ledgerium Network is up and running correctly</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="XLG_Reward.html">XLG Reward</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Application.html">Ledgerium Application</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Ledgerium_Block_Explorer.html">Ledgerium Block Explorer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Ledgerium_Wallet.html">Ledgerium Wallet</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Ledgerium_Wallet.html#download">Download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Ledgerium_Wallet.html#run-chrome">Run (Chrome)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Ledgerium_Faucet.html">Ledgerium Faucet</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Ledgerium_Faucet.html#ledgerium-testnet-faucet">Ledgerium TestNet Faucet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Ledgerium_Faucet.html#local-private-testnet">Local Private TestNet</a></li>
 </ul>
 </li>
 </ul>
@@ -349,7 +419,11 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">LEDGERIUM TESTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Ledgerium_Test_Suite.html">Ledgerium Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ledgerium_Test_Suite.html">Ledgerium Test Suite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Test_Suite.html#faulty-node-test">Faulty Node Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Test_Suite.html#quorum-acceptance-tests">Quorum Acceptance Tests</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">

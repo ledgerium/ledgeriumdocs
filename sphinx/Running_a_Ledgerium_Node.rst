@@ -1,15 +1,15 @@
-Running a Ledgerium Node
+Running a Ledgerium Master Node
 ==========================================
 
 Getting started
 ----------------
-This is a full guide to set up a Ledgerium "full" node on a fresh linux machine
+This is a full guide to set up a Ledgerium "addon" node on a fresh linux machine
 The blockchain ecosystem is a combination of multiple technologies that come together. It is overwhelming to know that so much has been achieved in a short span. The tech stacks range from (not limited to this list) GoLang, NodeJs, Haskell, Metamask, Solidity and supporting Web3 technologies. Hence this will always remain as a living document for the team.
 
 One-click Dependencies Installer
 -----------------------------------
 
-`script.sh` is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.
+`ledgerium_setup.sh` is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.
 
 Download <https://github.com/ledgerium/ledgeriumsetup/>
 
@@ -31,14 +31,25 @@ Once the dependencies are done installing go ahead and run the node
 
 * `./ledgerium_setup.sh`
 
-This script prompts user for 2 parameters, type of mode (full/addon) and domain name, creates a docker-compose file and brings up the cointainers
+This script prompts user for 3 parameters, mode `addon`, numbers of nodes, and mnemonics for each node. The script creates a docker-compose file and brings up the cointainers
+
+What is Mnemonics
+-----------------
+
+The mnemonic is just a random string
+
+------------
+
+
 
 Manual Setup
-------------------------------
+=======================
 
-## Install Docker CE
 
-### SET UP THE REPOSITORY
+
+
+SET UP THE REPOSITORY
+----------------------
 
 Reference: https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
@@ -83,7 +94,8 @@ $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ub
 Note: The lsb_release -cs sub-command below returns the name of your Ubuntu distribution, such as xenial. Sometimes, in a distribution like Linux Mint, you might need to change $(lsb_release -cs) to your parent Ubuntu distribution. For example, if you are using Linux Mint Rafaela, you could use trusty.
 ```
 
-### Install Docker CE
+Install Docker CE
+------------------------
 
 1. Update the apt package index.
 
@@ -101,7 +113,8 @@ $ sudo apt-get install docker-ce
 $ sudo docker run hello-world
 ```
 
-### Install Docker Compose
+Install Docker Compose
+-----------------------
 
 Reference : https://docs.docker.com/compose/install/
 
@@ -124,7 +137,8 @@ $ chmod +x /usr/local/bin/docker-compose.
 > docker-compose version 1.23.2, build 1110ad01
 > ```
 
-#### To create the docker group and add your user:
+To create the docker group and add your user:
+----------------------------------------------
 
 1. Create the docker group.
 ```
@@ -148,7 +162,9 @@ $ sudo usermod -aG docker $USER
 $ docker run hello-world
 ```
 
-## Install NodeJS
+Install NodeJS
+--------------
+
 Reference:  https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/
 
 ```
@@ -160,9 +176,11 @@ sudo apt-get install nodejs &&
 rm nodesource_setup.sh
 ```
 
-## Blockchain full Node setup
 
-### 1. Clone Ledgerium tools
+Blockchain full Node setup
+-----------------------
+
+* 1. Clone Ledgerium tools
 Ledgerium tools is used to create a docker-compose.yml file
 ```
 git clone http://github.com/ledgerium/ledgeriumtools.git
@@ -180,12 +198,12 @@ Change `modeType = full`, `nodeName = $(hostname)` and `domainName`
 Note: User has to edit these values in the json file before running ledgerium tools application
 ```
 
-### 2. Create a docker network
+* 2. Create a docker network
 ```
 docker network create -d bridge --subnet 172.19.240.0/24 --gateway 172.19.240.1 test_net
 ```
 
-### 3. Run Ledgerium tools application
+* 3. Run Ledgerium tools application
 
 Run ledgerium tools application. Note: 'Number of Mnemonics' refers to the amount of nodes you want to spawn (minimum 4)
 ```
@@ -199,7 +217,7 @@ cd output
 sudo docker-compose up -d
 ```
 
-### 4. Check application status
+* 4. Check application status
 
 Check the ./logs/constellationLogs and ./logs/gethLogs folders are created.
 

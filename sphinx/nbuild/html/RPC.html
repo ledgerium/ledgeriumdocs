@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>RPC &mdash; Ledgerium Docs 0.1.0alpha documentation</title>
+  <title>RPC &mdash; Ledgerium Docs 1.1.0alpha documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1
+                1.1
               </div>
             
           
@@ -93,10 +93,11 @@
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Core.html">Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connecting_to_Ledgerium_Core.html">Connecting to Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#accounts">Accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a></li>
 <li class="toctree-l1"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private testnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private TestNet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG_Reward.html">XLG Reward</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Application.html">Ledgerium Application</a></li>
 </ul>
@@ -194,6 +195,13 @@
             
   <div class="section" id="rpc">
 <h1>RPC<a class="headerlink" href="#rpc" title="Permalink to this headline">¶</a></h1>
+<p>In previous sections we have seen how contracts can be written, deployed and interacted with. Now it’s time to dive into the details of communicating
+with the Ledgerium network and smart contracts.</p>
+<p>An Ledgerium node offers a <a class="reference external" href="https://wikipedia.org/wiki/Remote_procedure_call">RPC</a> interface. This interface gives Ðapp’s access to the Ledgerium
+blockchain and functionality that the node provides, such as compiling smart contract code. It uses a subset of the
+<a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC 2.0</a> specification (no support for notifications or named parameters) as the serialisation protocol and
+is available over HTTP and IPC (unix domain sockets on linux/OSX and named pipe’s on Windows).</p>
+<p>If you are not interested in the details but are looking for an easy to use javascript library you can skip the following sections and continue with looking up Web3</p>
 </div>
 
 

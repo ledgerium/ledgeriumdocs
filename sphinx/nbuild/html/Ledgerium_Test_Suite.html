@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ledgerium Test Suite &mdash; Ledgerium Docs 0.1.0alpha documentation</title>
+  <title>Ledgerium Test Suite &mdash; Ledgerium Docs 1.1.0alpha documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1
+                1.1
               </div>
             
           
@@ -93,10 +93,16 @@
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Core.html">Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connecting_to_Ledgerium_Core.html">Connecting to Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#accounts">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#keyfiles">Keyfiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#creating-an-account">Creating an account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#importing-your-presale-wallet">Importing your presale wallet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#updating-an-account">Updating an account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#backup-and-restore-accounts">Backup and restore accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a></li>
 <li class="toctree-l1"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private testnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private TestNet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG_Reward.html">XLG Reward</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Application.html">Ledgerium Application</a></li>
 </ul>
@@ -108,7 +114,11 @@
 </ul>
 <p class="caption"><span class="caption-text">LEDGERIUM TESTS</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Ledgerium Test Suite</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ledgerium Test Suite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#faulty-node-test">Faulty Node Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quorum-acceptance-tests">Quorum Acceptance Tests</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">GLOSSARY</span></p>
 <ul>
@@ -183,6 +193,16 @@
             
   <div class="section" id="ledgerium-test-suite">
 <h1>Ledgerium Test Suite<a class="headerlink" href="#ledgerium-test-suite" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="faulty-node-test">
+<h2>Faulty Node Test<a class="headerlink" href="#faulty-node-test" title="Permalink to this headline">¶</a></h2>
+<p>The main focus was to test the hypothesis that a correlation exists between the time elapsed when mining stopped and how long the mining took to restart when condition 2F+1 is satisified. It appears that the faster we satisify the condition, the faster mining restarts. However, when mining has been stopped for &gt;2 hours, it has been observed mining will not resume again.</p>
+<img alt="_images/testresult1.png" src="_images/testresult1.png" />
+<img alt="_images/testresult2.png" src="_images/testresult2.png" />
+</div>
+<div class="section" id="quorum-acceptance-tests">
+<h2>Quorum Acceptance Tests<a class="headerlink" href="#quorum-acceptance-tests" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/ledgerium-io/quorum-acceptance-tests">https://github.com/ledgerium-io/quorum-acceptance-tests</a></p>
+</div>
 </div>
 
 

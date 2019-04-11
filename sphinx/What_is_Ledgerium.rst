@@ -12,6 +12,8 @@ The merits of the Blockchain technology are exactly the current accounting and a
 
 • High security
 
+• Public as well as private transactions
+
 • Digital formation
 
 • And much more
