@@ -12,7 +12,7 @@ The main focus was to test the hypothesis that a correlation exists between the 
 | 2 | 7 | 5 | TRUE | TRUE | :white_check_mark: | 9 | Initialised  6H + 2F nodes on a fresh chain |
 | 2 | 6 | 5 | TRUE | TRUE | :white_check_mark: | 8 | -1 H node (validator 0) |
 | 1 | 6 | 3 | TRUE | TRUE | :white_check_mark: | 7 | -1 F node |
-| 2 | 6 | 5 | TRUE | TRUE | :white_check_mark: | 8 | +1 F node |
+| 2 | 6 | 5 | TRUE | TRUE | :white_check_mark: | 8 | +1 F node |s
 | 2 | 5 | 5 | TRUE | TRUE | :white_check_mark: | 7 | -1 H node (validator 4) |
 | 2 | 4 | 5 | FALSE | FALSE | :white_check_mark: | 6 | -1 H node (validator 5) -> mining stopped |
 | 2 | 5 | 5 | TRUE | TRUE | :white_check_mark: | 7 | Let mining stop for a few minutes before bringing +1 H node (validator 5) -> mining started again after a few minutes |

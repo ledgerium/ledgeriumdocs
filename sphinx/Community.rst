@@ -8,24 +8,26 @@ Please choose your forum wisely when starting a discussion or asking a question,
 
 Social Media
 ================================================================================
-The `Ledgerium subreddit`_ is the most inclusive Ledgerium forum, where most of the community discussion is happening and where core devs are also active. This is your forum of choice for generic discussion of news, media coverage, announcements, brainstorming. In general all things Ethereum relevant to the wider community.
+The `Ledgerium subreddit` is the most inclusive Ledgerium forum, where most of the community discussion is happening and where core devs are also active. This is your forum of choice for generic discussion of news, media coverage, announcements, brainstorming. In general all things Ledgerium relevant to the wider community.
 
-* `/r/Ledgerium <https://www.reddit.com/r/EthTrader/>`_ - Ether trading, price and  market
-* `Twitter <https://www.twitter.com/ledgerium>`_ - Ledgerium's official Twitter
-* `Facebook <https://www.facebook.com/Ledgerium/>`
-* `Medium <https://medium.com/@ledgerium.m>`
+* `/r/Ledgerium` https://www.reddit.com/r/ledgerium
+* `Twitter` https://www.twitter.com/ledgerium
+* `Facebook` https://www.facebook.com/Ledgerium/
+* `Medium` https://medium.com/@ledgerium.m
 
 
 Meetups
 ================================================================================
 
+TBA
 
 Chat
 ===================
 Telegram
 -------
-`Official Ledgerium Telegram<https://t.me/LedgeriumOfficial>`
+
+`Official Ledgerium Telegram` https://t.me/LedgeriumOfficial
 
 WeeChat
 -------
-`Offical Ledgerium WeeChat <https://weixin.qq.com/r/GykgOAHEi1z0rUVb93wJ>`
+Offical Ledgerium WeeChat` https://weixin.qq.com/r/GykgOAHEi1z0rUVb93wJ

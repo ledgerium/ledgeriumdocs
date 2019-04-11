@@ -69,7 +69,18 @@ Change directory to output and use
 Confirming Ledgerium Network is up and running correctly
 ---------------------------------------------------------
 
+We can see if the application ran correctly by going to ethstats on `http://localhost:3000`
 
+This will show us:
+ * Block data and minting status
+ * Validator/Node data
+ * Transactions statistics
+
+.. image:: images/3000.png
+
+We also have the Quorum dashboard accessible by `http://localhost:9999`
+
+.. image:: images/9999.png
 
 
 Note :

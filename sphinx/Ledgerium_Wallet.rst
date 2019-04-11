@@ -14,3 +14,7 @@ Run (Chrome)
 * Switch on `Developer Mode`
 * Click `load unpacked`
 * Load from `metamask-extension/dist/chrome/`
+
+
+
+.. image:: images/wallet.png
