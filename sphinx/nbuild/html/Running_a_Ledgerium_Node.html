@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Running a Ledgerium Node &mdash; Ledgerium Docs 1.1.0alpha documentation</title>
+  <title>Running a Ledgerium Master Node &mdash; Ledgerium Docs 1.1.0alpha documentation</title>
   
 
   
@@ -93,12 +93,19 @@
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Core.html">Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connecting_to_Ledgerium_Core.html">Connecting to Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#accounts">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#keyfiles">Keyfiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#creating-an-account">Creating an account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#importing-your-presale-wallet">Importing your presale wallet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#updating-an-account">Updating an account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#backup-and-restore-accounts">Backup and restore accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="Connecting_to_the_Network.html">Connecting to the Network</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Running a Ledgerium Node</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Running a Ledgerium Master Node</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#getting-started">Getting started</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#one-click-dependencies-installer">One-click Dependencies Installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-is-mnemonics">What is Mnemonics</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#manual-setup">Manual Setup</a></li>
 </ul>
 </li>
@@ -186,7 +193,7 @@
         
           <li><a href="Connecting_to_the_Network.html">Connecting to the Network</a> &raquo;</li>
         
-      <li>Running a Ledgerium Node</li>
+      <li>Running a Ledgerium Master Node</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -205,16 +212,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="running-a-ledgerium-node">
-<h1>Running a Ledgerium Node<a class="headerlink" href="#running-a-ledgerium-node" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="running-a-ledgerium-master-node">
+<h1>Running a Ledgerium Master Node<a class="headerlink" href="#running-a-ledgerium-master-node" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<p>This is a full guide to set up a Ledgerium “full” node on a fresh linux machine
+<p>This is a full guide to set up a Ledgerium “addon” node on a fresh linux machine
 The blockchain ecosystem is a combination of multiple technologies that come together. It is overwhelming to know that so much has been achieved in a short span. The tech stacks range from (not limited to this list) GoLang, NodeJs, Haskell, Metamask, Solidity and supporting Web3 technologies. Hence this will always remain as a living document for the team.</p>
 </div>
 <div class="section" id="one-click-dependencies-installer">
 <h2>One-click Dependencies Installer<a class="headerlink" href="#one-click-dependencies-installer" title="Permalink to this headline">¶</a></h2>
-<p><cite>script.sh</cite> is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.</p>
+<p><cite>ledgerium_setup.sh</cite> is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.</p>
 <p>Download &lt;<a class="reference external" href="https://github.com/ledgerium/ledgeriumsetup/">https://github.com/ledgerium/ledgeriumsetup/</a>&gt;</p>
 <p>To download <strong>ledgeriumsetup</strong> go to the console and type</p>
 <ul class="simple">
@@ -230,7 +237,10 @@ The blockchain ecosystem is a combination of multiple technologies that come tog
 <ul class="simple">
 <li><cite>./ledgerium_setup.sh</cite></li>
 </ul>
-<p>This script prompts user for 2 parameters, type of mode (full/addon) and domain name, creates a docker-compose file and brings up the cointainers</p>
+<p>This script prompts user for 3 parameters, mode <cite>addon</cite>, numbers of nodes, and mnemonics for each node. The script creates a docker-compose file and brings up the cointainers</p>
+</div>
+<div class="section" id="what-is-mnemonics">
+<h2>What is Mnemonics<a class="headerlink" href="#what-is-mnemonics" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="manual-setup">
 <h2>Manual Setup<a class="headerlink" href="#manual-setup" title="Permalink to this headline">¶</a></h2>
