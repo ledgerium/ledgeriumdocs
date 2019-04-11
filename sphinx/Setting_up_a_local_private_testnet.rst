@@ -1,12 +1,37 @@
 Setting up a local private TestNet
 ==========================================
 
-To set-up your local private testnet, please visit the section on `Ledgerium Tools`
+===============
+ONE CLICK SETUP
+===============
 
-LedgeriumTools
----------------
+`ledgerium_setup.sh` is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.
 
-Ledgerium tools generates a docker-compose yaml for deploying N nodes with IBFT consensus
+To download the installer go to the console and type
+
+* `git clone https://github.com/ledgerium-io/ledgeriumsetup.git`
+* `cd ledgeriumsetup`
+* `./install_dependencies.sh`
+
+This script does the following:
+
+* Install prerequisite softwares (Docker and NodeJS) to run ledgerium tools.
+* Add $USER to docker group, to avoid using sudo before docker commands
+* Creates a docker network
+
+Once the dependencies are done installing go ahead and run the node
+
+* `./ledgerium_setup.sh`
+
+This script prompts user for 3 parameters, mode addon, numbers of nodes, and mnemonics for each node. The script creates a docker-compose file and brings up the cointainers
+
+
+----------------
+
+
+============
+MANUAL SETUP
+============
 
 Prerequisites
 -------------
@@ -21,6 +46,9 @@ Start up the terminal and enter the following commands:
 
 * git clone https://github.com/ledgerium-io/ledgeriumtools.git
 * cd ledgeriumtools
+
+Ledgerium tools generates a docker-compose yaml for deploying N nodes with IBFT consensus
+
 
 Update initialparams.json
 -------------------------
