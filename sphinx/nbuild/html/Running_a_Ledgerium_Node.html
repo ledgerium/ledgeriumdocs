@@ -113,17 +113,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#blockchain-full-node-setup">Blockchain full Node setup</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#manually-shutting-down-a-node">Manually shutting down a node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#manually-starting-up-a-node">Manually starting up a node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#what-is-it">What is it?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#role-of-validators">Role of Validators</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#responsibilites-for-validators">Responsibilites for Validators</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#what-constitutes-a-passing-vote">What constitutes a passing vote</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#getting-started-with-governance-ui">Getting started with Governance UI</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Connecting_as_a_client.html">Connecting as a client</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Full_Node_vs_Light_Node.html">Full Node vs Light Node</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Running_a_validator_Node.html">Running a validator Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Running_a_validator_Node.html">Running a Ledgerium Validator Node</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Installing_LedgeriumCore.html">Installing LedgeriumCore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Ledgerium_Tools.html">Ledgerium Tools</a></li>
@@ -132,6 +126,8 @@
 <li class="toctree-l2"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private TestNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Governance_UI.html">Governance UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Governance_UI.html#getting-started-with-governance-ui">Getting started with Governance UI</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
@@ -513,66 +509,6 @@ After running <cite>ledgeriumtools</cite> application, <cite>ledgeriumnetwork</c
 <li><cite>cd ~/ledgerium/ledgeriumtools/output</cite></li>
 <li><cite>docker-compose up</cite></li>
 </ul>
-<div class="section" id="governance-ui">
-<h3>Governance UI<a class="headerlink" href="#governance-ui" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="what-is-it">
-<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h2>
-<p>Governance UI is a way for validators to participate in on-chain governance</p>
-</div>
-<div class="section" id="role-of-validators">
-<h2>Role of Validators<a class="headerlink" href="#role-of-validators" title="Permalink to this headline">¶</a></h2>
-<p>A Validator is an independent individual who stakes their XLG and is entrusted to maintain a node on the network that validates transactions and commits new blocks to the blockchain. Validators receive a reward in XLG for provisioning blocks.</p>
-</div>
-<div class="section" id="responsibilites-for-validators">
-<h2>Responsibilites for Validators<a class="headerlink" href="#responsibilites-for-validators" title="Permalink to this headline">¶</a></h2>
-<p>A Validator has both technical and social responsiblities both of which are important for the health, performance and security of the network.</p>
-<p>Technical Responsibilites</p>
-<ul class="simple">
-<li>Ensure node is secure by practicing safe key management</li>
-<li>Maintain node requisite software version</li>
-<li>Monitor node to ensure its availablility and participation in consensus</li>
-<li>Monitor network in general and communicate with other Validators, network entities if problems arise.</li>
-</ul>
-<p>Social Responsibilites</p>
-<ul class="simple">
-<li>Participate in on-chain Governace of the network</li>
-</ul>
-<p>Governance is a collection of DApps where ballots are proposed and voted on by existing Validators to manage the network. The Ballot types include:</p>
-<ul class="simple">
-<li>Adding new Validators</li>
-<li>Removing Validators, i.e. for compromising security of network, malicious behavior, non-participation in Governance</li>
-</ul>
-</div>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>To participate in Governance, you must:</p>
-<ul class="simple">
-<li>Be voted in as a Validator</li>
-<li>Have the Ledgerium Wallet installed</li>
-<li>Import your private key to the wallet</li>
-</ul>
-</div>
-<div class="section" id="what-constitutes-a-passing-vote">
-<h2>What constitutes a passing vote<a class="headerlink" href="#what-constitutes-a-passing-vote" title="Permalink to this headline">¶</a></h2>
-<p>A vote is passed if the sum is greater than to n/2, where n is the number of existing validator nodes</p>
-</div>
-<div class="section" id="getting-started-with-governance-ui">
-<h2>Getting started with Governance UI<a class="headerlink" href="#getting-started-with-governance-ui" title="Permalink to this headline">¶</a></h2>
-<p>Navigate to <cite>http://testnet.ledgerium.net:3545/</cite></p>
-<ul class="simple">
-<li>Current admins/validator list; if you are a Validator your node will be on this list</li>
-</ul>
-<img alt="_images/current_admins.png" src="_images/current_admins.png" />
-<ul class="simple">
-<li>Current voting status</li>
-</ul>
-<img alt="_images/voting_status.png" src="_images/voting_status.png" />
-<ul class="simple">
-<li>Online nodes (validator + addon nodes)</li>
-</ul>
-<img alt="_images/node_list.png" src="_images/node_list.png" />
 </div>
 </div>
 

@@ -38,7 +38,7 @@ To participate in Governance, you must:
 
 * Be voted in as a Validator
 * Have the Ledgerium Wallet installed
-* Import your private key to the wallet
+* Import your private key associated to your validator status to the wallet
 
 
 What constitutes a passing vote
@@ -47,20 +47,29 @@ What constitutes a passing vote
 A vote is passed if the sum is greater than to n/2, where n is the number of existing validator nodes
 
 
+===================================
 Getting started with Governance UI
------------------------------------
+===================================
 
 Navigate to `http://testnet.ledgerium.net:3545/`
 
+If you are a voted in Validator
+-------------------------------
 
-* Current admins/validator list; if you are a Validator your node will be on this list
+You will be showing up on this list
 
 .. image:: images/current_admins.png
 
-* Current voting status
+If you are an addon node that has not been voted in as a Validator
+------------------------------------------------------------------
+
+You will be showing up on this list
+
+.. image:: images/peer_list.png
+
+Current voting status
+---------------------
+
+This list will show what who is voting for what decision
 
 .. image:: images/voting_status.png
-
-* Online nodes (validator + addon nodes)
-
-.. image:: images/node_list.png

@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Connecting as a client" href="Connecting_as_a_client.html" />
-    <link rel="prev" title="Running a Ledgerium Master Node" href="Running_a_Ledgerium_Node.html" /> 
+    <link rel="next" title="XLG Reward" href="XLG_Reward.html" />
+    <link rel="prev" title="Setting up a local private TestNet" href="Setting_up_a_local_private_testnet.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,28 +101,24 @@
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html#backup-and-restore-accounts">Backup and restore accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="Connecting_to_the_Network.html">Connecting to the Network</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="Running_a_Ledgerium_Node.html">Running a Ledgerium Master Node</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Governance UI</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#what-is-it">What is it?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#role-of-validators">Role of Validators</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#responsibilites-for-validators">Responsibilites for Validators</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#what-constitutes-a-passing-vote">What constitutes a passing vote</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#getting-started-with-governance-ui">Getting started with Governance UI</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="Connecting_as_a_client.html">Connecting as a client</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Full_Node_vs_Light_Node.html">Full Node vs Light Node</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Running_a_validator_Node.html">Running a Ledgerium Validator Node</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Installing_LedgeriumCore.html">Installing LedgeriumCore</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Ledgerium_Tools.html">Ledgerium Tools</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="Connecting_to_the_Network.html">Connecting to the Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private TestNet</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Governance UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-it">What is it?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#role-of-validators">Role of Validators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#responsibilites-for-validators">Responsibilites for Validators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-constitutes-a-passing-vote">What constitutes a passing vote</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started-with-governance-ui">Getting started with Governance UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#if-you-are-a-voted-in-validator">If you are a voted in Validator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if-you-are-an-addon-node-that-has-not-been-voted-in-as-a-validator">If you are an addon node that has not been voted in as a Validator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#current-voting-status">Current voting status</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
@@ -194,8 +190,6 @@
         
           <li><a href="The_Ledgerium_network.html">The Ledgerium network</a> &raquo;</li>
         
-          <li><a href="Connecting_to_the_Network.html">Connecting to the Network</a> &raquo;</li>
-        
       <li>Governance UI</li>
     
     
@@ -251,28 +245,31 @@
 <ul class="simple">
 <li>Be voted in as a Validator</li>
 <li>Have the Ledgerium Wallet installed</li>
-<li>Import your private key to the wallet</li>
+<li>Import your private key associated to your validator status to the wallet</li>
 </ul>
 </div>
 <div class="section" id="what-constitutes-a-passing-vote">
 <h2>What constitutes a passing vote<a class="headerlink" href="#what-constitutes-a-passing-vote" title="Permalink to this headline">¶</a></h2>
 <p>A vote is passed if the sum is greater than to n/2, where n is the number of existing validator nodes</p>
 </div>
+</div>
 <div class="section" id="getting-started-with-governance-ui">
-<h2>Getting started with Governance UI<a class="headerlink" href="#getting-started-with-governance-ui" title="Permalink to this headline">¶</a></h2>
+<h1>Getting started with Governance UI<a class="headerlink" href="#getting-started-with-governance-ui" title="Permalink to this headline">¶</a></h1>
 <p>Navigate to <cite>http://testnet.ledgerium.net:3545/</cite></p>
-<ul class="simple">
-<li>Current admins/validator list; if you are a Validator your node will be on this list</li>
-</ul>
+<div class="section" id="if-you-are-a-voted-in-validator">
+<h2>If you are a voted in Validator<a class="headerlink" href="#if-you-are-a-voted-in-validator" title="Permalink to this headline">¶</a></h2>
+<p>You will be showing up on this list</p>
 <img alt="_images/current_admins.png" src="_images/current_admins.png" />
-<ul class="simple">
-<li>Current voting status</li>
-</ul>
+</div>
+<div class="section" id="if-you-are-an-addon-node-that-has-not-been-voted-in-as-a-validator">
+<h2>If you are an addon node that has not been voted in as a Validator<a class="headerlink" href="#if-you-are-an-addon-node-that-has-not-been-voted-in-as-a-validator" title="Permalink to this headline">¶</a></h2>
+<p>You will be showing up on this list</p>
+<img alt="_images/peer_list.png" src="_images/peer_list.png" />
+</div>
+<div class="section" id="current-voting-status">
+<h2>Current voting status<a class="headerlink" href="#current-voting-status" title="Permalink to this headline">¶</a></h2>
+<p>This list will show what who is voting for what decision</p>
 <img alt="_images/voting_status.png" src="_images/voting_status.png" />
-<ul class="simple">
-<li>Online nodes (validator + addon nodes)</li>
-</ul>
-<img alt="_images/node_list.png" src="_images/node_list.png" />
 </div>
 </div>
 
@@ -284,10 +281,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Connecting_as_a_client.html" class="btn btn-neutral float-right" title="Connecting as a client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="XLG_Reward.html" class="btn btn-neutral float-right" title="XLG Reward" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Running_a_Ledgerium_Node.html" class="btn btn-neutral float-left" title="Running a Ledgerium Master Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Setting_up_a_local_private_testnet.html" class="btn btn-neutral float-left" title="Setting up a local private TestNet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
