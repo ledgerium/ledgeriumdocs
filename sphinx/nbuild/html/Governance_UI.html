@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Connecting to the Network &mdash; Ledgerium Docs 1.1.0alpha documentation</title>
+  <title>Governance UI &mdash; Ledgerium Docs 1.1.0alpha documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Running a Ledgerium Master Node" href="Running_a_Ledgerium_Node.html" />
-    <link rel="prev" title="The Ledgerium network" href="The_Ledgerium_network.html" /> 
+    <link rel="next" title="Connecting as a client" href="Connecting_as_a_client.html" />
+    <link rel="prev" title="Running a Ledgerium Master Node" href="Running_a_Ledgerium_Node.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,8 +101,17 @@
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html#backup-and-restore-accounts">Backup and restore accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Connecting to the Network</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="Connecting_to_the_Network.html">Connecting to the Network</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="Running_a_Ledgerium_Node.html">Running a Ledgerium Master Node</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Governance UI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-is-it">What is it?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#role-of-validators">Role of Validators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#responsibilites-for-validators">Responsibilites for Validators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-constitutes-a-passing-vote">What constitutes a passing vote</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getting-started-with-governance-ui">Getting started with Governance UI</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="Connecting_as_a_client.html">Connecting as a client</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Full_Node_vs_Light_Node.html">Full Node vs Light Node</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Running_a_validator_Node.html">Running a Ledgerium Validator Node</a></li>
@@ -114,7 +123,6 @@
 <li class="toctree-l2"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private TestNet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Governance_UI.html">Governance UI</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
@@ -186,13 +194,15 @@
         
           <li><a href="The_Ledgerium_network.html">The Ledgerium network</a> &raquo;</li>
         
-      <li>Connecting to the Network</li>
+          <li><a href="Connecting_to_the_Network.html">Connecting to the Network</a> &raquo;</li>
+        
+      <li>Governance UI</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/Connecting_to_the_Network.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Governance_UI.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -205,61 +215,64 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="connecting-to-the-network">
-<h1>Connecting to the Network<a class="headerlink" href="#connecting-to-the-network" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Connecting to the Network</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Running_a_Ledgerium_Node.html">Running a Ledgerium Master Node</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#getting-started">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#what-is-mnemonics">What is Mnemonics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#set-up-the-repository">SET UP THE REPOSITORY</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#install-docker-ce">Install Docker CE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#install-docker-compose">Install Docker Compose</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#to-create-the-docker-group-and-add-your-user">To create the docker group and add your user:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#install-nodejs">Install NodeJS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#blockchain-full-node-setup">Blockchain full Node setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#manually-shutting-down-a-node">Manually shutting down a node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#manually-starting-up-a-node">Manually starting up a node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#what-is-it">What is it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#role-of-validators">Role of Validators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#responsibilites-for-validators">Responsibilites for Validators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#what-constitutes-a-passing-vote">What constitutes a passing vote</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_Ledgerium_Node.html#getting-started-with-governance-ui">Getting started with Governance UI</a></li>
+  <div class="section" id="governance-ui">
+<h1>Governance UI<a class="headerlink" href="#governance-ui" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-it">
+<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h2>
+<p>Governance UI is a way for validators to participate in on-chain governance</p>
+</div>
+<div class="section" id="role-of-validators">
+<h2>Role of Validators<a class="headerlink" href="#role-of-validators" title="Permalink to this headline">¶</a></h2>
+<p>A Validator is an independent individual who stakes their XLG and is entrusted to maintain a node on the network that validates transactions and commits new blocks to the blockchain. Validators receive a reward in XLG for provisioning blocks.</p>
+</div>
+<div class="section" id="responsibilites-for-validators">
+<h2>Responsibilites for Validators<a class="headerlink" href="#responsibilites-for-validators" title="Permalink to this headline">¶</a></h2>
+<p>A Validator has both technical and social responsiblities both of which are important for the health, performance and security of the network.</p>
+<p>Technical Responsibilites</p>
+<ul class="simple">
+<li>Ensure node is secure by practicing safe key management</li>
+<li>Maintain node requisite software version</li>
+<li>Monitor node to ensure its availablility and participation in consensus</li>
+<li>Monitor network in general and communicate with other Validators, network entities if problems arise.</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Connecting_as_a_client.html">Connecting as a client</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Connecting_as_a_client.html#connecting-to-ledgerium-clients">Connecting to Ledgerium Clients</a></li>
+<p>Social Responsibilites</p>
+<ul class="simple">
+<li>Participate in on-chain Governace of the network</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Full_Node_vs_Light_Node.html">Full Node vs Light Node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Running_a_validator_Node.html">Running a Ledgerium Validator Node</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_validator_Node.html#getting-started">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_validator_Node.html#what-is-mnemonics">What is Mnemonics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_validator_Node.html#set-up-the-repository">SET UP THE REPOSITORY</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_validator_Node.html#install-docker-ce">Install Docker CE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_validator_Node.html#install-docker-compose">Install Docker Compose</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_validator_Node.html#to-create-the-docker-group-and-add-your-user">To create the docker group and add your user:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_validator_Node.html#install-nodejs">Install NodeJS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_validator_Node.html#blockchain-full-node-setup">Blockchain full Node setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_validator_Node.html#manually-shutting-down-a-node">Manually shutting down a node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_a_validator_Node.html#manually-starting-up-a-node">Manually starting up a node</a></li>
+<p>Governance is a collection of DApps where ballots are proposed and voted on by existing Validators to manage the network. The Ballot types include:</p>
+<ul class="simple">
+<li>Adding new Validators</li>
+<li>Removing Validators, i.e. for compromising security of network, malicious behavior, non-participation in Governance</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Prerequisites.html">Prerequisites</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Prerequisites.html#nodejs">NodeJS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Prerequisites.html#golang">GoLang</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Prerequisites.html#docker">Docker</a></li>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>To participate in Governance, you must:</p>
+<ul class="simple">
+<li>Be voted in as a Validator</li>
+<li>Have the Ledgerium Wallet installed</li>
+<li>Import your private key to the wallet</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Installing_LedgeriumCore.html">Installing LedgeriumCore</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Ledgerium_Tools.html">Ledgerium Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Tools.html#update-initialparams-json">Update initialparams.json</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Ledgerium_Tools.html#run-ledgeriumtools-application">Run ledgeriumtools application</a></li>
+</div>
+<div class="section" id="what-constitutes-a-passing-vote">
+<h2>What constitutes a passing vote<a class="headerlink" href="#what-constitutes-a-passing-vote" title="Permalink to this headline">¶</a></h2>
+<p>A vote is passed if the sum is greater than to n/2, where n is the number of existing validator nodes</p>
+</div>
+<div class="section" id="getting-started-with-governance-ui">
+<h2>Getting started with Governance UI<a class="headerlink" href="#getting-started-with-governance-ui" title="Permalink to this headline">¶</a></h2>
+<p>Navigate to <cite>http://testnet.ledgerium.net:3545/</cite></p>
+<ul class="simple">
+<li>Current admins/validator list; if you are a Validator your node will be on this list</li>
 </ul>
-</li>
+<img alt="_images/current_admins.png" src="_images/current_admins.png" />
+<ul class="simple">
+<li>Current voting status</li>
 </ul>
+<img alt="_images/voting_status.png" src="_images/voting_status.png" />
+<ul class="simple">
+<li>Online nodes (validator + addon nodes)</li>
+</ul>
+<img alt="_images/node_list.png" src="_images/node_list.png" />
 </div>
 </div>
 
@@ -271,10 +284,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Running_a_Ledgerium_Node.html" class="btn btn-neutral float-right" title="Running a Ledgerium Master Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Connecting_as_a_client.html" class="btn btn-neutral float-right" title="Connecting as a client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="The_Ledgerium_network.html" class="btn btn-neutral float-left" title="The Ledgerium network" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Running_a_Ledgerium_Node.html" class="btn btn-neutral float-left" title="Running a Ledgerium Master Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

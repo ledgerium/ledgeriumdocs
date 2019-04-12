@@ -9,3 +9,4 @@ The Ledgerium network
    Test_Networks
    Prerequisites
    Setting_up_a_local_private_testnet
+   Governance_UI

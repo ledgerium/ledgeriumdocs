@@ -16,6 +16,9 @@ Download <https://github.com/ledgerium/ledgeriumsetup/>
 
 To download **ledgeriumsetup** go to the console and type
 
+* `mkdir ledgerium`
+
+* `cd ledgerium`
 
 * `git clone https://github.com/ledgerium-io/ledgeriumsetup.git`
 
@@ -45,7 +48,6 @@ The mnemonic is just a random string
 ============
 Manual Setup
 ============
-
 
 
 
@@ -184,6 +186,8 @@ Blockchain full Node setup
 * 1. Clone Ledgerium tools
 Ledgerium tools is used to create a docker-compose.yml file
 ```
+mkdir ledgerium
+cd ledgerium
 git clone http://github.com/ledgerium/ledgeriumtools.git
 cd ledgeriumtools
 npm install
@@ -291,3 +295,20 @@ We can see if the application ran correctly by going to ethstats on `http://loca
     And the Governance user intreface accessible by `http://localhost:3545`
 
     .. image:: images/governance.png
+
+
+Manually shutting down a node
+----------------------------
+
+ * `cd ~/ledgerium/ledgeriumtools/output`
+ * `docker-compose down`
+
+Confirm your node is up the same way you would when you first build and run your first node
+
+
+
+Manually starting up a node
+----------------------------
+
+* `cd ~/ledgerium/ledgeriumtools/output`
+* `docker-compose up`

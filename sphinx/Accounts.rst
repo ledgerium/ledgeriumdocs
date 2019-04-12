@@ -50,7 +50,7 @@ Accounts
       <strong>Remember your passwords and <a href="#backup-and-restore-accounts">backup your keyfiles</a>.</strong>
 
 
-   
+
    .. _using-mist-ethereum-wallet:
 
    Using Mist Ethereum wallet
