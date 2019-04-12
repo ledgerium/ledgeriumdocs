@@ -6,8 +6,9 @@ Getting started
 This is a full guide to set up a Ledgerium "addon" node on a fresh linux machine
 The blockchain ecosystem is a combination of multiple technologies that come together. It is overwhelming to know that so much has been achieved in a short span. The tech stacks range from (not limited to this list) GoLang, NodeJs, Haskell, Metamask, Solidity and supporting Web3 technologies. Hence this will always remain as a living document for the team.
 
+================================
 One-click Dependencies Installer
------------------------------------
+================================
 
 `ledgerium_setup.sh` is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.
 
@@ -15,6 +16,9 @@ Download <https://github.com/ledgerium/ledgeriumsetup/>
 
 To download **ledgeriumsetup** go to the console and type
 
+* `mkdir ledgerium`
+
+* `cd ledgerium`
 
 * `git clone https://github.com/ledgerium-io/ledgeriumsetup.git`
 
@@ -41,10 +45,9 @@ The mnemonic is just a random string
 ------------
 
 
-
+============
 Manual Setup
-=======================
-
+============
 
 
 
@@ -183,6 +186,8 @@ Blockchain full Node setup
 * 1. Clone Ledgerium tools
 Ledgerium tools is used to create a docker-compose.yml file
 ```
+mkdir ledgerium
+cd ledgerium
 git clone http://github.com/ledgerium/ledgeriumtools.git
 cd ledgeriumtools
 npm install
@@ -267,3 +272,43 @@ A genereated docker compose file will consist of 3 image containers per node. Th
     Ports required:
 
     `3545`
+
+
+=========================================================
+Confirming Ledgerium Network is up and running correctly
+=========================================================
+
+
+We can see if the application ran correctly by going to ethstats on `http://localhost:3000`
+
+    This will show us:
+     * Block data and minting status
+     * Validator/Node data
+     * Transactions statistics
+
+    .. image:: images/3000.png
+
+    We also have the Quorum dashboard accessible by `http://localhost:9999`
+
+    .. image:: images/9999.png
+
+    And the Governance user intreface accessible by `http://localhost:3545`
+
+    .. image:: images/governance.png
+
+
+Manually shutting down a node
+----------------------------
+
+ * `cd ~/ledgerium/ledgeriumtools/output`
+ * `docker-compose down`
+
+Confirm your node is up the same way you would when you first build and run your first node
+
+
+
+Manually starting up a node
+----------------------------
+
+* `cd ~/ledgerium/ledgeriumtools/output`
+* `docker-compose up`

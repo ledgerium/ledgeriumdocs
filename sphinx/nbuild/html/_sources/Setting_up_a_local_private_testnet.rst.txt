@@ -2,7 +2,7 @@ Setting up a local private TestNet
 ==========================================
 
 ===============
-ONE CLICK SETUP
+One-click Setup
 ===============
 
 `ledgerium_setup.sh` is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.
@@ -30,7 +30,7 @@ This script prompts user for 3 parameters, mode addon, numbers of nodes, and mne
 
 
 ============
-MANUAL SETUP
+Manual Setup
 ============
 
 Prerequisites
@@ -94,8 +94,9 @@ Change directory to output and use
 * `docker-compose up -d` to start up the nodes
 * `docker-compose down` to bring down the nodes
 
+=========================================================
 Confirming Ledgerium Network is up and running correctly
----------------------------------------------------------
+=========================================================
 
 We can see if the application ran correctly by going to ethstats on `http://localhost:3000`
 
@@ -110,9 +111,13 @@ We also have the Quorum dashboard accessible by `http://localhost:9999`
 
 .. image:: images/9999.png
 
+And the Governance user intreface accessible by `http://localhost:3545`
+
+.. image:: images/governance.png
+
 
 Note :
 
-* This application is currently using `constellation` as the `private transaction manager`.*
-* Don't use the -v option to bring down the nodes as the current blockchain data will be lost*
-* For subsequent runs make sure the tmp dir created in output folder is deleted*
+* This application is currently using `constellation` as the `private transaction manager`.
+* Don't use the -v option to bring down the nodes as the current blockchain data will be lost
+* For subsequent runs make sure the tmp dir created in output folder is deleted

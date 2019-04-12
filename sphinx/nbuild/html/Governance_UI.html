@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Connecting as a client &mdash; Ledgerium Docs 1.1.0alpha documentation</title>
+  <title>Governance UI &mdash; Ledgerium Docs 1.1.0alpha documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Full Node vs Light Node" href="Full_Node_vs_Light_Node.html" />
-    <link rel="prev" title="Running a Ledgerium Master Node" href="Running_a_Ledgerium_Node.html" /> 
+    <link rel="next" title="XLG Reward" href="XLG_Reward.html" />
+    <link rel="prev" title="Setting up a local private TestNet" href="Setting_up_a_local_private_testnet.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,24 +101,24 @@
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html#backup-and-restore-accounts">Backup and restore accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="Connecting_to_the_Network.html">Connecting to the Network</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="Running_a_Ledgerium_Node.html">Running a Ledgerium Master Node</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Connecting as a client</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#connecting-to-ledgerium-clients">Connecting to Ledgerium Clients</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="Full_Node_vs_Light_Node.html">Full Node vs Light Node</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Running_a_validator_Node.html">Running a Ledgerium Validator Node</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Installing_LedgeriumCore.html">Installing LedgeriumCore</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Ledgerium_Tools.html">Ledgerium Tools</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="Connecting_to_the_Network.html">Connecting to the Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private TestNet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Governance_UI.html">Governance UI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Governance_UI.html#getting-started-with-governance-ui">Getting started with Governance UI</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Governance UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-it">What is it?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#role-of-validators">Role of Validators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#responsibilites-for-validators">Responsibilites for Validators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-constitutes-a-passing-vote">What constitutes a passing vote</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started-with-governance-ui">Getting started with Governance UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#if-you-are-a-voted-in-validator">If you are a voted in Validator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if-you-are-an-addon-node-that-has-not-been-voted-in-as-a-validator">If you are an addon node that has not been voted in as a Validator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#current-voting-status">Current voting status</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
@@ -190,15 +190,13 @@
         
           <li><a href="The_Ledgerium_network.html">The Ledgerium network</a> &raquo;</li>
         
-          <li><a href="Connecting_to_the_Network.html">Connecting to the Network</a> &raquo;</li>
-        
-      <li>Connecting as a client</li>
+      <li>Governance UI</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/Connecting_as_a_client.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Governance_UI.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -211,59 +209,67 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="connecting-as-a-client">
-<h1>Connecting as a client<a class="headerlink" href="#connecting-as-a-client" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="connecting-to-ledgerium-clients">
-<span id="connecting-to-clients"></span><h2>Connecting to Ledgerium Clients<a class="headerlink" href="#connecting-to-ledgerium-clients" title="Permalink to this headline">¶</a></h2>
-<p>Ledgerium clients expose a number of methods over <a class="reference external" href="https://github.com/ethereum/wiki/wiki/JSON-RPC">JSON-RPC</a> for interacting with them from within an application. However, interacting directly over JSON-RPC passes on a number of burdens to the application developers, such as:</p>
-<blockquote>
-<div><ul class="simple">
-<li>JSON-RPC protocol implementation</li>
-<li>Binary format encoding/decoding for creating and interacting with smart contracts</li>
-<li>256 bit numeric types</li>
-<li>Admin command support - e.g. create/manage addresses, sign transactions</li>
-</ul>
-</div></blockquote>
-<p>A number of libraries have been written to help address these issues, allowing application developers to focus on their applications, instead of the underlying plumbing to interact with Ledgerium clients and the wider ecosystem.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="27%" />
-<col width="15%" />
-<col width="58%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Library</th>
-<th class="head">Language</th>
-<th class="head">Project Page</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><span class="xref std std-ref">web3.js</span></td>
-<td>JavaScript</td>
-<td><a class="reference external" href="https://github.com/ethereum/web3.js">https://github.com/ethereum/web3.js</a></td>
-</tr>
-<tr class="row-odd"><td><span class="xref std std-ref">web3j</span></td>
-<td>Java</td>
-<td><a class="reference external" href="https://github.com/web3j/web3j">https://github.com/web3j/web3j</a></td>
-</tr>
-<tr class="row-even"><td><span class="xref std std-ref">Nethereum</span></td>
-<td>C# .NET</td>
-<td><a class="reference external" href="https://github.com/Nethereum/Nethereum">https://github.com/Nethereum/Nethereum</a></td>
-</tr>
-<tr class="row-odd"><td><span class="xref std std-ref">ethereum-ruby</span></td>
-<td>Ruby</td>
-<td><a class="reference external" href="https://github.com/DigixGlobal/ethereum-ruby">https://github.com/DigixGlobal/ethereum-ruby</a></td>
-</tr>
-<tr class="row-even"><td><span class="xref std std-ref">web3.py</span></td>
-<td>Python</td>
-<td><a class="reference external" href="https://github.com/ethereum/web3.py">https://github.com/ethereum/web3.py</a></td>
-</tr>
-</tbody>
-</table>
-<p>Information on each library is provided in the following sections:</p>
-<div class="toctree-wrapper compound">
+  <div class="section" id="governance-ui">
+<h1>Governance UI<a class="headerlink" href="#governance-ui" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-it">
+<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h2>
+<p>Governance UI is a way for validators to participate in on-chain governance</p>
 </div>
-<p>For an overview of creating and interacting with smart contracts and transactions via the web3.js library, please refer to the section <span class="xref std std-ref">Accessing Contracts and Transactions</span>.</p>
+<div class="section" id="role-of-validators">
+<h2>Role of Validators<a class="headerlink" href="#role-of-validators" title="Permalink to this headline">¶</a></h2>
+<p>A Validator is an independent individual who stakes their XLG and is entrusted to maintain a node on the network that validates transactions and commits new blocks to the blockchain. Validators receive a reward in XLG for provisioning blocks.</p>
+</div>
+<div class="section" id="responsibilites-for-validators">
+<h2>Responsibilites for Validators<a class="headerlink" href="#responsibilites-for-validators" title="Permalink to this headline">¶</a></h2>
+<p>A Validator has both technical and social responsiblities both of which are important for the health, performance and security of the network.</p>
+<p>Technical Responsibilites</p>
+<ul class="simple">
+<li>Ensure node is secure by practicing safe key management</li>
+<li>Maintain node requisite software version</li>
+<li>Monitor node to ensure its availablility and participation in consensus</li>
+<li>Monitor network in general and communicate with other Validators, network entities if problems arise.</li>
+</ul>
+<p>Social Responsibilites</p>
+<ul class="simple">
+<li>Participate in on-chain Governace of the network</li>
+</ul>
+<p>Governance is a collection of DApps where ballots are proposed and voted on by existing Validators to manage the network. The Ballot types include:</p>
+<ul class="simple">
+<li>Adding new Validators</li>
+<li>Removing Validators, i.e. for compromising security of network, malicious behavior, non-participation in Governance</li>
+</ul>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>To participate in Governance, you must:</p>
+<ul class="simple">
+<li>Be voted in as a Validator</li>
+<li>Have the Ledgerium Wallet installed</li>
+<li>Import your private key associated to your validator status to the wallet</li>
+</ul>
+</div>
+<div class="section" id="what-constitutes-a-passing-vote">
+<h2>What constitutes a passing vote<a class="headerlink" href="#what-constitutes-a-passing-vote" title="Permalink to this headline">¶</a></h2>
+<p>A vote is passed if the sum is greater than to n/2, where n is the number of existing validator nodes</p>
+</div>
+</div>
+<div class="section" id="getting-started-with-governance-ui">
+<h1>Getting started with Governance UI<a class="headerlink" href="#getting-started-with-governance-ui" title="Permalink to this headline">¶</a></h1>
+<p>Navigate to <cite>http://testnet.ledgerium.net:3545/</cite></p>
+<div class="section" id="if-you-are-a-voted-in-validator">
+<h2>If you are a voted in Validator<a class="headerlink" href="#if-you-are-a-voted-in-validator" title="Permalink to this headline">¶</a></h2>
+<p>You will be showing up on this list</p>
+<img alt="_images/current_admins.png" src="_images/current_admins.png" />
+</div>
+<div class="section" id="if-you-are-an-addon-node-that-has-not-been-voted-in-as-a-validator">
+<h2>If you are an addon node that has not been voted in as a Validator<a class="headerlink" href="#if-you-are-an-addon-node-that-has-not-been-voted-in-as-a-validator" title="Permalink to this headline">¶</a></h2>
+<p>You will be showing up on this list</p>
+<img alt="_images/peer_list.png" src="_images/peer_list.png" />
+</div>
+<div class="section" id="current-voting-status">
+<h2>Current voting status<a class="headerlink" href="#current-voting-status" title="Permalink to this headline">¶</a></h2>
+<p>This list will show what who is voting for what decision</p>
+<img alt="_images/voting_status.png" src="_images/voting_status.png" />
 </div>
 </div>
 
@@ -275,10 +281,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Full_Node_vs_Light_Node.html" class="btn btn-neutral float-right" title="Full Node vs Light Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="XLG_Reward.html" class="btn btn-neutral float-right" title="XLG Reward" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Running_a_Ledgerium_Node.html" class="btn btn-neutral float-left" title="Running a Ledgerium Master Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Setting_up_a_local_private_testnet.html" class="btn btn-neutral float-left" title="Setting up a local private TestNet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

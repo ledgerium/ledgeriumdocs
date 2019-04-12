@@ -46,7 +46,6 @@ Getting ether
 ================================================================================
 
 XLG is currently trading as an ERC-20 token. An initial supply of only 200 XLG was created out of which only 50% is currently in unlocked wallets. You can trade, buy or sell the ERC-20 XLG token on the following exchanges.
-Sending ether
 
 * https://acx.io/markets/xlgbtc
 * https://idex.market/eth/xlg

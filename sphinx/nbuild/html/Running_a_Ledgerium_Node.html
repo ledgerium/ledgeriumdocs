@@ -104,22 +104,20 @@
 <li class="toctree-l2 current"><a class="reference internal" href="Connecting_to_the_Network.html">Connecting to the Network</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Running a Ledgerium Master Node</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#getting-started">Getting started</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#one-click-dependencies-installer">One-click Dependencies Installer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#what-is-mnemonics">What is Mnemonics</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#manual-setup">Manual Setup</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#set-up-the-repository">SET UP THE REPOSITORY</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#install-docker-ce">Install Docker CE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#install-docker-compose">Install Docker Compose</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#to-create-the-docker-group-and-add-your-user">To create the docker group and add your user:</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#install-nodejs">Install NodeJS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#blockchain-full-node-setup">Blockchain full Node setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manually-shutting-down-a-node">Manually shutting down a node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manually-starting-up-a-node">Manually starting up a node</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Connecting_as_a_client.html">Connecting as a client</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Full_Node_vs_Light_Node.html">Full Node vs Light Node</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Running_a_validator_Node.html">Running a validator Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Running_a_validator_Node.html">Running a Ledgerium Validator Node</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Installing_LedgeriumCore.html">Installing LedgeriumCore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Ledgerium_Tools.html">Ledgerium Tools</a></li>
@@ -128,6 +126,8 @@
 <li class="toctree-l2"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Setting_up_a_local_private_testnet.html">Setting up a local private TestNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Governance_UI.html">Governance UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Governance_UI.html#getting-started-with-governance-ui">Getting started with Governance UI</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
@@ -226,13 +226,14 @@
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>This is a full guide to set up a Ledgerium “addon” node on a fresh linux machine
 The blockchain ecosystem is a combination of multiple technologies that come together. It is overwhelming to know that so much has been achieved in a short span. The tech stacks range from (not limited to this list) GoLang, NodeJs, Haskell, Metamask, Solidity and supporting Web3 technologies. Hence this will always remain as a living document for the team.</p>
-</div>
 <div class="section" id="one-click-dependencies-installer">
-<h2>One-click Dependencies Installer<a class="headerlink" href="#one-click-dependencies-installer" title="Permalink to this headline">¶</a></h2>
+<h3>One-click Dependencies Installer<a class="headerlink" href="#one-click-dependencies-installer" title="Permalink to this headline">¶</a></h3>
 <p><cite>ledgerium_setup.sh</cite> is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.</p>
 <p>Download &lt;<a class="reference external" href="https://github.com/ledgerium/ledgeriumsetup/">https://github.com/ledgerium/ledgeriumsetup/</a>&gt;</p>
 <p>To download <strong>ledgeriumsetup</strong> go to the console and type</p>
 <ul class="simple">
+<li><cite>mkdir ledgerium</cite></li>
+<li><cite>cd ledgerium</cite></li>
 <li><cite>git clone https://github.com/ledgerium-io/ledgeriumsetup.git</cite></li>
 <li><cite>cd ledgeriumsetup</cite></li>
 <li><cite>./install_dependencies.sh</cite></li>
@@ -247,14 +248,15 @@ The blockchain ecosystem is a combination of multiple technologies that come tog
 </ul>
 <p>This script prompts user for 3 parameters, mode <cite>addon</cite>, numbers of nodes, and mnemonics for each node. The script creates a docker-compose file and brings up the cointainers</p>
 </div>
+</div>
 <div class="section" id="what-is-mnemonics">
 <h2>What is Mnemonics<a class="headerlink" href="#what-is-mnemonics" title="Permalink to this headline">¶</a></h2>
 <p>The mnemonic is just a random string</p>
-</div>
-</div>
 <hr class="docutils" />
 <div class="section" id="manual-setup">
-<h1>Manual Setup<a class="headerlink" href="#manual-setup" title="Permalink to this headline">¶</a></h1>
+<h3>Manual Setup<a class="headerlink" href="#manual-setup" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
 <div class="section" id="set-up-the-repository">
 <h2>SET UP THE REPOSITORY<a class="headerlink" href="#set-up-the-repository" title="Permalink to this headline">¶</a></h2>
 <p>Reference: <a class="reference external" href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">https://docs.docker.com/install/linux/docker-ce/ubuntu/</a></p>
@@ -379,6 +381,8 @@ sub   4096R/F273FCD8 2017-02-22
 </ul>
 <p>Ledgerium tools is used to create a docker-compose.yml file
 <code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">mkdir</span> <span class="pre">ledgerium</span>
+<span class="pre">cd</span> <span class="pre">ledgerium</span>
 <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">http://github.com/ledgerium/ledgeriumtools.git</span>
 <span class="pre">cd</span> <span class="pre">ledgeriumtools</span>
 <span class="pre">npm</span> <span class="pre">install</span>
@@ -468,6 +472,43 @@ After running <cite>ledgeriumtools</cite> application, <cite>ledgeriumnetwork</c
 </div></blockquote>
 </li>
 </ol>
+<div class="section" id="confirming-ledgerium-network-is-up-and-running-correctly">
+<h3>Confirming Ledgerium Network is up and running correctly<a class="headerlink" href="#confirming-ledgerium-network-is-up-and-running-correctly" title="Permalink to this headline">¶</a></h3>
+<p>We can see if the application ran correctly by going to ethstats on <cite>http://localhost:3000</cite></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>This will show us:</dt>
+<dd><ul class="first last simple">
+<li>Block data and minting status</li>
+<li>Validator/Node data</li>
+<li>Transactions statistics</li>
+</ul>
+</dd>
+</dl>
+<img alt="_images/3000.png" src="_images/3000.png" />
+<p>We also have the Quorum dashboard accessible by <cite>http://localhost:9999</cite></p>
+<img alt="_images/9999.png" src="_images/9999.png" />
+<p>And the Governance user intreface accessible by <cite>http://localhost:3545</cite></p>
+<img alt="_images/governance.png" src="_images/governance.png" />
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="manually-shutting-down-a-node">
+<h2>Manually shutting down a node<a class="headerlink" href="#manually-shutting-down-a-node" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><cite>cd ~/ledgerium/ledgeriumtools/output</cite></li>
+<li><cite>docker-compose down</cite></li>
+</ul>
+</div></blockquote>
+<p>Confirm your node is up the same way you would when you first build and run your first node</p>
+</div>
+<div class="section" id="manually-starting-up-a-node">
+<h2>Manually starting up a node<a class="headerlink" href="#manually-starting-up-a-node" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><cite>cd ~/ledgerium/ledgeriumtools/output</cite></li>
+<li><cite>docker-compose up</cite></li>
+</ul>
 </div>
 </div>
 
