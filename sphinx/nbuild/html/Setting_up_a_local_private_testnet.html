@@ -105,32 +105,32 @@
 <li class="toctree-l2"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Setting up a local private TestNet</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#one-click-setup">ONE CLICK SETUP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#manual-setup">MANUAL SETUP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#one-click-setup">One-click Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-setup">Manual Setup</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#downloading">Downloading</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#update-initialparams-json">Update initialparams.json</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#run-ledgeriumtools-application">Run ledgeriumtools application</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#start-the-ledgerium-network">Start the Ledgerium Network</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#confirming-ledgerium-network-is-up-and-running-correctly">Confirming Ledgerium Network is up and running correctly</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#confirming-ledgerium-network-is-up-and-running-correctly">Confirming Ledgerium Network is up and running correctly</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up a local private TestNet</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#one-click-setup">ONE CLICK SETUP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#manual-setup">MANUAL SETUP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#one-click-setup">One-click Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manual-setup">Manual Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#downloading">Downloading</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#update-initialparams-json">Update initialparams.json</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#run-ledgeriumtools-application">Run ledgeriumtools application</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#start-the-ledgerium-network">Start the Ledgerium Network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#confirming-ledgerium-network-is-up-and-running-correctly">Confirming Ledgerium Network is up and running correctly</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#confirming-ledgerium-network-is-up-and-running-correctly">Confirming Ledgerium Network is up and running correctly</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="XLG_Reward.html">XLG Reward</a></li>
@@ -222,7 +222,7 @@
   <div class="section" id="setting-up-a-local-private-testnet">
 <h1>Setting up a local private TestNet<a class="headerlink" href="#setting-up-a-local-private-testnet" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="one-click-setup">
-<h2>ONE CLICK SETUP<a class="headerlink" href="#one-click-setup" title="Permalink to this headline">¶</a></h2>
+<h2>One-click Setup<a class="headerlink" href="#one-click-setup" title="Permalink to this headline">¶</a></h2>
 <p><cite>ledgerium_setup.sh</cite> is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.</p>
 <p>To download the installer go to the console and type</p>
 <ul class="simple">
@@ -244,7 +244,7 @@
 </div>
 <hr class="docutils" />
 <div class="section" id="manual-setup">
-<h2>MANUAL SETUP<a class="headerlink" href="#manual-setup" title="Permalink to this headline">¶</a></h2>
+<h2>Manual Setup<a class="headerlink" href="#manual-setup" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="prerequisites">
 <h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -308,8 +308,9 @@
 <li><cite>docker-compose down</cite> to bring down the nodes</li>
 </ul>
 </div>
+</div>
 <div class="section" id="confirming-ledgerium-network-is-up-and-running-correctly">
-<h3>Confirming Ledgerium Network is up and running correctly<a class="headerlink" href="#confirming-ledgerium-network-is-up-and-running-correctly" title="Permalink to this headline">¶</a></h3>
+<h2>Confirming Ledgerium Network is up and running correctly<a class="headerlink" href="#confirming-ledgerium-network-is-up-and-running-correctly" title="Permalink to this headline">¶</a></h2>
 <p>We can see if the application ran correctly by going to ethstats on <cite>http://localhost:3000</cite></p>
 <dl class="docutils">
 <dt>This will show us:</dt>
@@ -323,13 +324,14 @@
 <img alt="_images/3000.png" src="_images/3000.png" />
 <p>We also have the Quorum dashboard accessible by <cite>http://localhost:9999</cite></p>
 <img alt="_images/9999.png" src="_images/9999.png" />
+<p>And the Governance user intreface accessible by <cite>http://localhost:3545</cite></p>
+<img alt="_images/governance.png" src="_images/governance.png" />
 <p>Note :</p>
 <ul class="simple">
-<li>This application is currently using <cite>constellation</cite> as the <cite>private transaction manager</cite>.*</li>
-<li>Don’t use the -v option to bring down the nodes as the current blockchain data will be lost*</li>
-<li>For subsequent runs make sure the tmp dir created in output folder is deleted*</li>
+<li>This application is currently using <cite>constellation</cite> as the <cite>private transaction manager</cite>.</li>
+<li>Don’t use the -v option to bring down the nodes as the current blockchain data will be lost</li>
+<li>For subsequent runs make sure the tmp dir created in output folder is deleted</li>
 </ul>
-</div>
 </div>
 </div>
 

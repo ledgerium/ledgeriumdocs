@@ -6,8 +6,9 @@ Getting started
 This is a full guide to set up a Ledgerium "addon" node on a fresh linux machine
 The blockchain ecosystem is a combination of multiple technologies that come together. It is overwhelming to know that so much has been achieved in a short span. The tech stacks range from (not limited to this list) GoLang, NodeJs, Haskell, Metamask, Solidity and supporting Web3 technologies. Hence this will always remain as a living document for the team.
 
+================================
 One-click Dependencies Installer
------------------------------------
+================================
 
 `ledgerium_setup.sh` is a unix bash file that downloads and deploys one Ledgerium node (consists of Geth, Constellation/Tessera, and GovernanceUI Docker containers) in a single click.
 
@@ -41,9 +42,9 @@ The mnemonic is just a random string
 ------------
 
 
-
+============
 Manual Setup
-=======================
+============
 
 
 
@@ -267,3 +268,26 @@ A genereated docker compose file will consist of 3 image containers per node. Th
     Ports required:
 
     `3545`
+
+
+=========================================================
+Confirming Ledgerium Network is up and running correctly
+=========================================================
+
+
+We can see if the application ran correctly by going to ethstats on `http://localhost:3000`
+
+    This will show us:
+     * Block data and minting status
+     * Validator/Node data
+     * Transactions statistics
+
+    .. image:: images/3000.png
+
+    We also have the Quorum dashboard accessible by `http://localhost:9999`
+
+    .. image:: images/9999.png
+
+    And the Governance user intreface accessible by `http://localhost:3545`
+
+    .. image:: images/governance.png

@@ -1,4 +1,4 @@
 XLG Reward
 ==========================================
 
-To be determined 
+XLG rewards are given when a validator node mints a new block - to be updated
