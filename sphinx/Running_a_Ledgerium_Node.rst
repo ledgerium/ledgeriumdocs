@@ -16,6 +16,9 @@ Download <https://github.com/ledgerium/ledgeriumsetup/>
 
 To download **ledgeriumsetup** go to the console and type
 
+* `mkdir ledgerium`
+
+* `cd ledgerium`
 
 * `git clone https://github.com/ledgerium-io/ledgeriumsetup.git`
 
@@ -45,7 +48,6 @@ The mnemonic is just a random string
 ============
 Manual Setup
 ============
-
 
 
 
@@ -184,6 +186,8 @@ Blockchain full Node setup
 * 1. Clone Ledgerium tools
 Ledgerium tools is used to create a docker-compose.yml file
 ```
+mkdir ledgerium
+cd ledgerium
 git clone http://github.com/ledgerium/ledgeriumtools.git
 cd ledgeriumtools
 npm install
@@ -291,3 +295,89 @@ We can see if the application ran correctly by going to ethstats on `http://loca
     And the Governance user intreface accessible by `http://localhost:3545`
 
     .. image:: images/governance.png
+
+
+Manually shutting down a node
+----------------------------
+
+ * `cd ~/ledgerium/ledgeriumtools/output`
+ * `docker-compose down`
+
+Confirm your node is up the same way you would when you first build and run your first node
+
+
+
+Manually starting up a node
+----------------------------
+
+* `cd ~/ledgerium/ledgeriumtools/output`
+* `docker-compose up`
+
+
+
+=============
+Governance UI
+=============
+
+What is it?
+-----------
+
+Governance UI is a way for validators to participate in on-chain governance
+
+Role of Validators
+-------------------
+A Validator is an independent individual who stakes their XLG and is entrusted to maintain a node on the network that validates transactions and commits new blocks to the blockchain. Validators receive a reward in XLG for provisioning blocks.
+
+Responsibilites for Validators
+-------------------------------
+A Validator has both technical and social responsiblities both of which are important for the health, performance and security of the network.
+
+Technical Responsibilites
+
+* Ensure node is secure by practicing safe key management
+* Maintain node requisite software version
+* Monitor node to ensure its availablility and participation in consensus
+* Monitor network in general and communicate with other Validators, network entities if problems arise.
+
+Social Responsibilites
+
+* Participate in on-chain Governace of the network
+
+Governance is a collection of DApps where ballots are proposed and voted on by existing Validators to manage the network. The Ballot types include:
+
+* Adding new Validators
+* Removing Validators, i.e. for compromising security of network, malicious behavior, non-participation in Governance
+
+Prerequisites
+-------------
+
+To participate in Governance, you must:
+
+* Be voted in as a Validator
+* Have the Ledgerium Wallet installed
+* Import your private key to the wallet
+
+
+What constitutes a passing vote
+-------------------------------
+
+A vote is passed if the sum is greater than to n/2, where n is the number of existing validator nodes
+
+
+Getting started with Governance UI
+-----------------------------------
+
+Navigate to `http://testnet.ledgerium.net:3545/`
+
+
+* Current admins/validator list; if you are a Validator your node will be on this list
+
+.. image:: images/current_admins.png
+
+* Current voting status
+
+.. image:: images/voting_status.png
+
+* Online nodes (validator + addon nodes)
+
+.. image:: images/node_list.png
