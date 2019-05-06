@@ -145,23 +145,9 @@ Using Mist Ledgerium wallet
 
    2. Unzip the downloaded folder and run the Ledgerium-Wallet executable file.
 
-   .. image:: ../images/51Downloading.png
-      :width: 582px
-      :height: 469px
-      :scale: 75 %
-      :alt: downloading-mist
-      :align: center
-
    3. Wait for the blockchain to fully sync, then follow the instructions on the screen and your first account will be created.
 
    4. When you launch the Mist Ledgerium wallet for the first time, you will see the account you created during the installation process. By default it will be named MAIN ACCOUNT (ETHERBASE).
-
-   .. image:: ../images/51OpeningScreen.png
-      :width: 1024px
-      :height: 938px
-      :scale: 50 %
-      :alt: opening-screen
-      :align: center
 
    5. Creating additional accounts is easy; just click on ADD ACCOUNT in the app’s main screen and enter the required password.
 
@@ -254,13 +240,6 @@ Using Mist Ledgerium wallet
    Instructions for installing the Mist Ledgerium wallet are given in the section :ref:`Creating an account: Using Mist Ledgerium wallet <using-mist-Ledgerium-wallet>`.
 
    Simply drag-and-drop your ``.json`` presale wallet file into the designated area and enter your password to import your presale account.
-
-   .. image:: ../images/51PresaleImportInstall.png
-      :width: 582px
-      :height: 469px
-      :scale: 75 %
-      :alt: presale-import
-      :align: center
 
    If you choose not to import your presale wallet during installation of the app, you can import it at any time by selecting the ``Accounts`` menu in the app’s menu bar and then selecting ``Import Pre-sale Accounts``.
 
