@@ -145,7 +145,7 @@ Using Mist Ledgerium wallet
 
    2. Unzip the downloaded folder and run the Ledgerium-Wallet executable file.
 
-   .. image:: img/51Downloading.png
+   .. image:: ../images/51Downloading.png
       :width: 582px
       :height: 469px
       :scale: 75 %
@@ -156,7 +156,7 @@ Using Mist Ledgerium wallet
 
    4. When you launch the Mist Ledgerium wallet for the first time, you will see the account you created during the installation process. By default it will be named MAIN ACCOUNT (ETHERBASE).
 
-   .. image:: img/51OpeningScreen.png
+   .. image:: ../images/51OpeningScreen.png
       :width: 1024px
       :height: 938px
       :scale: 50 %
@@ -255,7 +255,7 @@ Using Mist Ledgerium wallet
 
    Simply drag-and-drop your ``.json`` presale wallet file into the designated area and enter your password to import your presale account.
 
-   .. image:: img/51PresaleImportInstall.png
+   .. image:: ../images/51PresaleImportInstall.png
       :width: 582px
       :height: 469px
       :scale: 75 %
