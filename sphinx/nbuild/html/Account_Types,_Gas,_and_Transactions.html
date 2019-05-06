@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Account Types, Gas, and Transactions &mdash; Ledgerium Docs 1.1.0alpha documentation</title>
+  <title>Account Types, Gas, and Transactions &mdash; Ledgerium Docs 1.0.0alpha documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                1.1
+                1.0
               </div>
             
           
@@ -93,9 +93,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Core.html">Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connecting_to_Ledgerium_Core.html">Connecting to Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html">Account Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#accounts">Accounts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#keyfiles">Keyfiles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#creating-an-account">Creating an account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html#importing-your-presale-wallet">Importing your presale wallet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html#updating-an-account">Updating an account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html#backup-and-restore-accounts">Backup and restore accounts</a></li>
@@ -407,7 +404,7 @@ They can be conceived of as function calls.</p>
 <p>Contracts interact with each other through an activity that is alternately called either “calling” or “sending messages”. A “message” is an object containing some quantity of ether, a byte-array of data of any size, the addresses of a sender and a recipient. When a contract receives a message, it has the option of returning some data, which the original sender of the message can then immediately use. In this way, sending a message is exactly like calling a function.</p>
 <p>Because contracts can play such different roles, we expect that contracts will be interacting with each other. As an example, consider a situation where Alice and Bob are betting 100 GavCoin that the temperature in San Francisco will not exceed 35ºC at any point in the next year. However, Alice is very security-conscious, and as her primary account uses a forwarding contract which only sends messages with the approval of two out of three private keys. Bob is paranoid about quantum cryptography, so he uses a forwarding contract which passes along only messages that have been signed with Lamport signatures alongside traditional ECDSA (but because he’s old fashioned, he prefers to use a version of Lamport sigs based on SHA256, which is not supported in Ledgerium directly).</p>
 <p>The betting contract itself needs to fetch data about the San Francisco weather from some contract, and it also needs to talk to the GavCoin contract when it wants to actually send the GavCoin to either Alice or Bob (or, more precisely, Alice or Bob’s forwarding contract). We can show the relationships between the accounts thus:</p>
-<img alt="../img/contract_relationship.png" src="../img/contract_relationship.png" />
+<img alt="_images/contract_relationship.png" src="_images/contract_relationship.png" />
 <p>When Bob wants to finalize the bet, the following steps happen:</p>
 <ol class="arabic simple">
 <li>A transaction is sent, triggering a message from Bob’s EOA to his forwarding contract.</li>
@@ -418,7 +415,7 @@ They can be conceived of as function calls.</p>
 <li>The bet contract sees that the response to the messages shows that the temperature is above 35ºC, so it sends a message to the GavCoin contract to move the GavCoin from its account to Bob’s forwarding contract.</li>
 </ol>
 <p>Note that the GavCoin is all “stored” as entries in the GavCoin contract’s database; the word “account” in the context of step 6 simply means that there is a data entry in the GavCoin contract storage with a key for the bet contract’s address and a value for its balance. After receiving this message, the GavCoin contract decreases this value by some amount and increases the value in the entry corresponding to Bob’s forwarding contract’s address. We can see these steps in the following diagram:</p>
-<img alt="../img/contract_relationship2.png" src="../img/contract_relationship2.png" />
+<img alt="_images/contract_relationship2.png" src="_images/contract_relationship2.png" />
 </div>
 <div class="section" id="signing-transactions-offline">
 <h2>Signing transactions offline<a class="headerlink" href="#signing-transactions-offline" title="Permalink to this headline">¶</a></h2>
