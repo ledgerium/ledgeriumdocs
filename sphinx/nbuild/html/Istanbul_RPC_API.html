@@ -123,9 +123,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Connecting_to_Ledgerium_Core.html">Connecting to Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html">Account Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#accounts">Accounts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#keyfiles">Keyfiles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Account_Management.html#creating-an-account">Creating an account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html#importing-your-presale-wallet">Importing your presale wallet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html#updating-an-account">Updating an account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Account_Management.html#backup-and-restore-accounts">Backup and restore accounts</a></li>
@@ -230,13 +227,7 @@
 <li>It allows managing the number of validators by a voting mechanism which involves at least 2F+1 nodes</li>
 <li>The details of active nodes can be found in the extra data of each block that has been committed using the istanbul-tools. One can decode the data in the following way</li>
 </ol>
-<blockquote>
-<div><dl class="docutils">
-<dt><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a></dt>
-<dd>istanbul extra decode –extradata “&lt;extradata&gt;
-<a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></dd>
-</dl>
-</div></blockquote>
+<p><cite>istanbul extra decode –extradata “&lt;extradata&gt;”</cite></p>
 <ol class="arabic simple" start="4">
 <li>This extra data contains one seal and 2F+1 committed seals, these committed seals are omitted when the block hash is calculated</li>
 <li>The committed seals maybe different in different blocks, but as this is not included in the blockhash, the hash can be used to verify across other nodes</li>
@@ -245,10 +236,11 @@
 <div class="section" id="istanbul-getsnapshot">
 <h2>istanbul.getSnapshot()<a class="headerlink" href="#istanbul-getsnapshot" title="Permalink to this headline">¶</a></h2>
 <p>This call shows the current state of the blockchain and gives the below structure as output
-<a href="#id9"><span class="problematic" id="id10">``</span></a>`
-{</p>
+.. code-block:: JSON</p>
 <blockquote>
-<div><p>epoch: &lt;num&gt;,
+<div><dl class="docutils">
+<dt>{</dt>
+<dd><p class="first">epoch: &lt;num&gt;,
 hash: “”,
 number: ,
 policy: 0,
@@ -269,10 +261,11 @@ votes: [{</p>
 authorize: bool,
 block: num,
 validator: addr</div></blockquote>
-<p>}]</p>
+<p class="last">}]</p>
+</dd>
+</dl>
+<p>}</p>
 </div></blockquote>
-<div class="section" id="id11">
-<h3>}<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>epoch : Indicates the number of blocks after which the proposal which hasn’t been resolved is cleared</li>
 <li>hash  : The current block hash at the given block number</li>
@@ -281,7 +274,6 @@ validator: addr</div></blockquote>
 <li>votes : The individual votes casted by validators as an array</li>
 <li>authorize : true - proposal to add as a validator, false - proposal to remove as a validator</li>
 </ul>
-</div>
 </div>
 <div class="section" id="istanbul-propose">
 <h2>istanbul.propose()<a class="headerlink" href="#istanbul-propose" title="Permalink to this headline">¶</a></h2>
@@ -299,29 +291,8 @@ validator: addr</div></blockquote>
 <h2>istanbul.getValidators()<a class="headerlink" href="#istanbul-getvalidators" title="Permalink to this headline">¶</a></h2>
 <p>Returns the list of active validators who can commit a block</p>
 <p>Every block header contains the following fields</p>
-<p><a href="#id12"><span class="problematic" id="id13">``</span></a>`
-block =
-{</p>
-<blockquote>
-<div>difficulty: 1,
-extraData: “”,
-gasLimit: ,
-gasUsed: 0,
-logsBloom: ,
-mixHash: ,
-nonce: “0x0000000000000000”,
-number: 12220,
-parentHash: “”,
-receiptsRoot: “”,
-sha3Uncles: “”,
-stateRoot: “”,
-timestamp: ,
-transactionsRoot: “”</div></blockquote>
-<div class="section" id="id14">
-<h3>}<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>The extra data doesn’t include the committed seals as these can vary from block to block, so the only extra data is the rlpHash of the validators and seal.
 When a block is sealed the block seal is computed as ECDSA(rlpHash(Block_Header), private_key)</p>
-</div>
 </div>
 <div class="section" id="istanbul-working">
 <h2>Istanbul Working<a class="headerlink" href="#istanbul-working" title="Permalink to this headline">¶</a></h2>

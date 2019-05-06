@@ -8,9 +8,7 @@ Istanbul Consensus
 2. It allows managing the number of validators by a voting mechanism which involves at least 2F+1 nodes
 3. The details of active nodes can be found in the extra data of each block that has been committed using the istanbul-tools. One can decode the data in the following way
 
-  ```
-	istanbul extra decode --extradata "<extradata>
-	```
+`istanbul extra decode --extradata "<extradata>"`
 
 4. This extra data contains one seal and 2F+1 committed seals, these committed seals are omitted when the block hash is calculated
 5. The committed seals maybe different in different blocks, but as this is not included in the blockhash, the hash can be used to verify across other nodes
@@ -19,27 +17,28 @@ istanbul.getSnapshot()
 -----------------------
 
 This call shows the current state of the blockchain and gives the below structure as output
-```
-{
-	epoch: <num>,
-	hash: "",
-	number: ,
-	policy: 0,
-	tally: {
-		<addr>: {
-			authorize: bool,
-			votes: num
-		}
-	},
-	validators: [addr1,addr2..],
-	votes: [{
-			address: addr,
-			authorize: bool,
-			block: num,
-			validator: addr
-	}]
-}
-```
+.. code-block:: JSON
+  {
+  	epoch: <num>,
+  	hash: "",
+  	number: ,
+  	policy: 0,
+  	tally: {
+  		<addr>: {
+  			authorize: bool,
+  			votes: num
+  		}
+  	},
+  	validators: [addr1,addr2..],
+  	votes: [{
+  			address: addr,
+  			authorize: bool,
+  			block: num,
+  			validator: addr
+  	}]
+  }
+
+
 * epoch : Indicates the number of blocks after which the proposal which hasn't been resolved is cleared
 * hash  : The current block hash at the given block number
 * tally : The object maintaining the current state of votes of all the validators
@@ -69,25 +68,24 @@ Returns the list of active validators who can commit a block
 
 Every block header contains the following fields
 
-```
-block =
-{
-	difficulty: 1,
-	extraData: "",
-	gasLimit: ,
-	gasUsed: 0,
-	logsBloom: ,
-	mixHash: ,
-	nonce: "0x0000000000000000",
-	number: 12220,
-	parentHash: "",
-	receiptsRoot: "",
-	sha3Uncles: "",
-	stateRoot: "",
-	timestamp: ,
-	transactionsRoot: ""
-}
-```
+.. code-block:: JSON
+  block =
+  {
+  	difficulty: 1,
+  	extraData: "",
+  	gasLimit: ,
+  	gasUsed: 0,
+  	logsBloom: ,
+  	mixHash: ,
+  	nonce: "0x0000000000000000",
+  	number: 12220,
+  	parentHash: "",
+  	receiptsRoot: "",
+  	sha3Uncles: "",
+  	stateRoot: "",
+  	timestamp: ,
+  	transactionsRoot: ""
+  }
 
 The extra data doesn’t include the committed seals as these can vary from block to block, so the only extra data is the rlpHash of the validators and seal.
 When a block is sealed the block seal is computed as ECDSA(rlpHash(Block_Header), private_key)
