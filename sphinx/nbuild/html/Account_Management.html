@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Account Management &mdash; Ledgerium Docs 1.1.0alpha documentation</title>
+  <title>Account Management &mdash; Ledgerium Docs 1.0.0alpha documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Accounts" href="Accounts.html" />
+    <link rel="next" title="XLG" href="XLG.html" />
     <link rel="prev" title="Ledgerium" href="Ledgerium.html" /> 
 </head>
 
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                1.1
+                1.0
               </div>
             
           
@@ -93,16 +93,30 @@
 <li class="toctree-l1"><a class="reference internal" href="Ledgerium_Core.html">Ledgerium Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connecting_to_Ledgerium_Core.html">Connecting to Ledgerium Core</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Account Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Accounts.html">Accounts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Account Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accounts">Accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keyfiles">Keyfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-an-account">Creating an account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-geth-account-new">Using <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">account</span> <span class="pre">new</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-geth-console">Using geth console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-mist-ledgerium-wallet">Using Mist Ledgerium wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-multi-signature-wallet-in-mist">Creating a Multi-Signature Wallet in Mist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-eth">Using Eth</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#accounts">Accounts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#keyfiles">Keyfiles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#creating-an-account">Creating an account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#importing-your-presale-wallet">Importing your presale wallet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#updating-an-account">Updating an account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#backup-and-restore-accounts">Backup and restore accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#importing-your-presale-wallet">Importing your presale wallet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Using Mist Ledgerium wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-geth">Using geth</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#updating-an-account">Updating an account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Using geth</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#backup-and-restore-accounts">Backup and restore accounts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#manual-backup-restore">Manual backup/restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-an-unencrypted-private-key">Importing an unencrypted private key</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="XLG.html">XLG</a></li>
 <li class="toctree-l1"><a class="reference internal" href="The_Ledgerium_network.html">The Ledgerium network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Test_Networks.html">Test Networks</a></li>
@@ -193,26 +207,8 @@
             
   <div class="section" id="account-management">
 <h1>Account Management<a class="headerlink" href="#account-management" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Account Management</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Accounts.html">Accounts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Creating_an_account.html">Creating an account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Update_an_account.html">Update an account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Backup_and_restore_accounts.html">Backup and restore accounts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Keyfiles.html">Keyfiles</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="id1">
-<h2>Account Management<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div></div></blockquote>
-</div>
-</div>
 <div class="section" id="accounts">
-<span id="id2"></span><h1>Accounts<a class="headerlink" href="#accounts" title="Permalink to this headline">¶</a></h1>
+<h2>Accounts<a class="headerlink" href="#accounts" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Accounts play a central role in Ledgerium. There are two types of accounts: <em>externally owned accounts</em> (EOAs) and <em>contract accounts</em>. Here we focus on externally owned accounts, which will be referred to simply as <em>accounts</em>. Contract accounts will be referred to as <em>contracts</em> and are <a class="reference internal" href="Contracts.html#contracts"><span class="std std-ref">discussed in detail in Contracts</span></a>. This generic notion of account subsuming both externally owned accounts and contracts is justified in that these entities are so called <em>state objects</em>. These entities have a state: accounts have balance and contracts have both balance and contract storage. The state of all accounts is the state of the Ledgerium network which is updated with every block and which the network really needs to reach a consensus about.
 Accounts are essential for users to interact with the Ledgerium blockchain via transactions.</p>
@@ -221,7 +217,7 @@ Accounts are essential for users to interact with the Ledgerium blockchain via t
 </div></blockquote>
 </div>
 <div class="section" id="keyfiles">
-<h1>Keyfiles<a class="headerlink" href="#keyfiles" title="Permalink to this headline">¶</a></h1>
+<h2>Keyfiles<a class="headerlink" href="#keyfiles" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Every account is defined by a pair of keys, a private key and public key. Accounts are indexed by their <em>address</em> which is derived from the public key by taking the last 20 bytes. Every private key/address pair is encoded in a <em>keyfile</em>. Keyfiles are JSON text files which you can open and view in any text editor. The critical component of the keyfile, your account’s private key, is always encrypted, and it is encrypted with the password you enter when you create the account. Keyfiles are found in the <code class="docutils literal notranslate"><span class="pre">keystore</span></code> subdirectory of your Ledgerium node’s data directory. Make sure you backup your keyfiles regularly! See the section <a class="reference internal" href="#backup-and-restore-accounts"><span class="std std-ref">Backup and restore accounts</span></a> for more information.</p>
 <p>Creating a key is tantamount to creating an account.</p>
@@ -240,13 +236,16 @@ Accounts are essential for users to interact with the Ledgerium blockchain via t
 </div></blockquote>
 </div>
 <div class="section" id="creating-an-account">
-<span id="id3"></span><h1>Creating an account<a class="headerlink" href="#creating-an-account" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h2>Creating an account<a class="headerlink" href="#creating-an-account" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last"><strong>Remember your passwords and <a href="#backup-and-restore-accounts">backup your keyfiles</a>.</strong> In order to send transactions from an account, including sending ether, you must have BOTH the keyfile and the password. Be absolutely sure to have a copy of your keyfile AND remember the password for that keyfile, and store them both as securely as possible. There are no escape routes here; lose the keyfile or forget your password and all your ether is gone. It is NOT possible to access your account without a password and there is no <em>forgot my password</em> option here. Do not forget it.</p>
 </div>
 </div></blockquote>
+</div>
+<div class="section" id="using-geth-account-new">
+<h2>Using <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">account</span> <span class="pre">new</span></code><a class="headerlink" href="#using-geth-account-new" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Once you have the geth client installed, creating an account is merely a case of executing the <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">account</span> <span class="pre">new</span></code> command in a terminal.</p>
 <p>Note that you do not have to run the geth client or sync up with the blockchain to use the <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">account</span></code> command.</p>
@@ -282,6 +281,9 @@ account <span class="c1">#2: {7f444580bfef4b9bc7e14eb7fb2a029336b07c9d}</span>
 </div>
 <p>The filenames of keyfiles has the format <code class="docutils literal notranslate"><span class="pre">UTC--&lt;created_at</span> <span class="pre">UTC</span> <span class="pre">ISO8601&gt;-&lt;address</span> <span class="pre">hex&gt;</span></code>. The order of accounts when listing, is lexicographic, but as a consequence of the timestamp format, it is actually order of creation.</p>
 </div></blockquote>
+</div>
+<div class="section" id="using-geth-console">
+<h2>Using geth console<a class="headerlink" href="#using-geth-console" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>In order to create a new account using geth, we must first start geth in console mode (or you can use <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">attach</span></code> to attach a console to an already running instance):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; geth console <span class="m">2</span>&gt;&gt; file_to_log_output
@@ -317,6 +319,9 @@ datadir: /home/USERNAME/.ledgerium
 </pre></div>
 </div>
 </div></blockquote>
+</div>
+<div class="section" id="using-mist-ledgerium-wallet">
+<span id="id2"></span><h2>Using Mist Ledgerium wallet<a class="headerlink" href="#using-mist-ledgerium-wallet" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>For the command line averse, there is now a GUI-based option for creating accounts: The “official” Mist Ledgerium wallet. The Mist Ledgerium wallet, and its parent Mist project, are being developed under the auspices of the Ledgerium Foundation, hence the “official” status. Versions of the wallet app are available for Linux, Mac OS X, and Windows.</p>
 <div class="admonition warning">
@@ -342,6 +347,9 @@ datadir: /home/USERNAME/.ledgerium
 <p class="last">The Mist wallet is still in active development, so details of the steps outlined above may change with upgrades.</p>
 </div>
 </div></blockquote>
+</div>
+<div class="section" id="creating-a-multi-signature-wallet-in-mist">
+<h2>Creating a Multi-Signature Wallet in Mist<a class="headerlink" href="#creating-a-multi-signature-wallet-in-mist" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>The Mist Ledgerium wallet has an option to secure your wallet balance with a multisig wallet. The advantage of using a multisig wallet is that it requires authorization from more than one account to withdraw larger amounts from your balance. Before you can create a multisig wallet, you’ll need to create more than one account.</p>
 <p>It’s very easy to create account files in Mist. In the ‘Accounts’ section click ‘Add Account’. Pick a strong yet easy-to-remember password (remember there is no password recovery option), confirm it, and your account is created. Create at least 2 accounts. Secondary accounts can be created on separate computers running Mist if you prefer (and theoretically make your multisig more secure doing it this way). You only need the public keys (your deposit addresses) of your secondary accounts when creating the multisig wallet (copy/paste them, do not ever type them by hand). Your primary account will be needed to create the multisig wallet contract, so it must be on the computer you are creating the multisig wallet on.</p>
@@ -362,6 +370,9 @@ datadir: /home/USERNAME/.ledgerium
 <li>“Wrong password” notice. This seems to be a false notice on occasion on current Mist versions. Restart Mist and the problem should go away (if you indeed entered the correct password).</li>
 </ul>
 </div></blockquote>
+</div>
+<div class="section" id="using-eth">
+<h2>Using Eth<a class="headerlink" href="#using-eth" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Every option related to key management available using geth can be used the same way in eth.</p>
 <p>Below are “account” related options:</p>
@@ -392,8 +403,11 @@ datadir: /home/USERNAME/.ledgerium
 </div>
 </div></blockquote>
 </div>
+</div>
 <div class="section" id="importing-your-presale-wallet">
 <h1>Importing your presale wallet<a class="headerlink" href="#importing-your-presale-wallet" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id3">
+<h2>Using Mist Ledgerium wallet<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Importing your presale wallet using the GUI Mist Ledgerium wallet is very easy. In fact, you will be asked if you want to import your presale wallet during the installation of the app.</p>
 <div class="admonition warning">
@@ -409,6 +423,9 @@ datadir: /home/USERNAME/.ledgerium
 <p class="last">The Mist wallet is still in active development, so details of the steps outlined above may change with upgrades.</p>
 </div>
 </div></blockquote>
+</div>
+<div class="section" id="using-geth">
+<h2>Using geth<a class="headerlink" href="#using-geth" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>If you have a standalone installation of geth, importing your presale wallet is accomplished by executing the following command in a terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>geth wallet import /path/to/my/presale-wallet.json
@@ -417,10 +434,13 @@ datadir: /home/USERNAME/.ledgerium
 <p>You will be prompted to enter your password.</p>
 </div></blockquote>
 </div>
+</div>
 <div class="section" id="updating-an-account">
 <h1>Updating an account<a class="headerlink" href="#updating-an-account" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div>You are able to upgrade your keyfile to the latest keyfile format and/or upgrade your keyfile password.</div></blockquote>
+<div class="section" id="id4">
+<h2>Using geth<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>You can update an existing account on the command line with the <code class="docutils literal notranslate"><span class="pre">update</span></code> subcommand with the account address or index as parameter. Remember that the account index reflects the order of creation (lexicographic order of keyfile names containing the creation time).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>geth account update b0047c606f3af7392e073ed13253f8f4710b08b6
@@ -455,8 +475,11 @@ Repeat Passphrase:
 </div>
 </div></blockquote>
 </div>
+</div>
 <div class="section" id="backup-and-restore-accounts">
-<span id="id4"></span><h1>Backup and restore accounts<a class="headerlink" href="#backup-and-restore-accounts" title="Permalink to this headline">¶</a></h1>
+<span id="id5"></span><h1>Backup and restore accounts<a class="headerlink" href="#backup-and-restore-accounts" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="manual-backup-restore">
+<h2>Manual backup/restore<a class="headerlink" href="#manual-backup-restore" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>You must have an account’s keyfile to be able to send any transaction from that account. Keyfiles are found in the keystore subdirectory of your Ledgerium node’s data directory. The default data directory locations are platform specific:</p>
 <ul class="simple">
@@ -467,6 +490,9 @@ Repeat Passphrase:
 <p>To backup your keyfiles (accounts), copy either the individual keyfiles within the <code class="docutils literal notranslate"><span class="pre">keystore</span></code> subdirectory or copy the entire <code class="docutils literal notranslate"><span class="pre">keystore</span></code> folder.</p>
 <p>To restore your keyfiles (accounts), copy the keyfiles back into the <code class="docutils literal notranslate"><span class="pre">keystore</span></code> subdirectory, where they were originally.</p>
 </div></blockquote>
+</div>
+<div class="section" id="importing-an-unencrypted-private-key">
+<h2>Importing an unencrypted private key<a class="headerlink" href="#importing-an-unencrypted-private-key" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Importing an unencrypted private key is supported by <code class="docutils literal notranslate"><span class="pre">geth</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>geth account import /path/to/&lt;keyfile&gt;
@@ -498,6 +524,7 @@ Address: <span class="o">{</span>7f444580bfef4b9bc7e14eb7fb2a029336b07c9d<span c
 </div>
 </div></blockquote>
 </div>
+</div>
 
 
            </div>
@@ -507,7 +534,7 @@ Address: <span class="o">{</span>7f444580bfef4b9bc7e14eb7fb2a029336b07c9d<span c
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Accounts.html" class="btn btn-neutral float-right" title="Accounts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="XLG.html" class="btn btn-neutral float-right" title="XLG" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Ledgerium.html" class="btn btn-neutral float-left" title="Ledgerium" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
