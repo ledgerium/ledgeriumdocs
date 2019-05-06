@@ -1,20 +1,9 @@
 Account Management
 ==========================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Account Management
-
-   Accounts
-
-********************************************************************************
-Account Management
-********************************************************************************
-
-   .. _Accounts:
 
 Accounts
-================================================================================
+---------------------------------------
 
    Accounts play a central role in Ledgerium. There are two types of accounts: *externally owned accounts* (EOAs) and *contract accounts*. Here we focus on externally owned accounts, which will be referred to simply as *accounts*. Contract accounts will be referred to as *contracts* and are :ref:`discussed in detail in Contracts <Contracts>`. This generic notion of account subsuming both externally owned accounts and contracts is justified in that these entities are so called *state objects*. These entities have a state: accounts have balance and contracts have both balance and contract storage. The state of all accounts is the state of the Ledgerium network which is updated with every block and which the network really needs to reach a consensus about.
    Accounts are essential for users to interact with the Ledgerium blockchain via transactions.
@@ -24,7 +13,7 @@ Accounts
    Accounts represent identities of external agents (e.g., human personas, mining nodes or automated agents). Accounts use public key cryptography to sign transactions so that the EVM can securely validate the identity of a transaction sender.
 
 Keyfiles
-================================================================================
+---------------------------------------
 
    Every account is defined by a pair of keys, a private key and public key. Accounts are indexed by their *address* which is derived from the public key by taking the last 20 bytes. Every private key/address pair is encoded in a *keyfile*. Keyfiles are JSON text files which you can open and view in any text editor. The critical component of the keyfile, your account’s private key, is always encrypted, and it is encrypted with the password you enter when you create the account. Keyfiles are found in the ``keystore`` subdirectory of your Ledgerium node’s data directory. Make sure you backup your keyfiles regularly! See the section :ref:`backup-and-restore-accounts` for more information.
 
@@ -44,7 +33,7 @@ Keyfiles
    .. _creating_an_account:
 
 Creating an account
-================================================================================
+---------------------------------------
 
    .. Warning:: |remember_backup| In order to send transactions from an account, including sending ether, you must have BOTH the keyfile and the password. Be absolutely sure to have a copy of your keyfile AND remember the password for that keyfile, and store them both as securely as possible. There are no escape routes here; lose the keyfile or forget your password and all your ether is gone. It is NOT possible to access your account without a password and there is no *forgot my password* option here. Do not forget it.
 
